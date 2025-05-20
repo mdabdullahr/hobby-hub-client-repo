@@ -3,16 +3,16 @@ import { Link, NavLink } from "react-router";
 
 const links = (
   <>
-    <li className="text-lg text-white md:text-xl">
+    <li className="text-lg text-secondary md:text-xl">
       <NavLink to="/">Home</NavLink>
     </li>
-    <li className="text-lg text-white md:text-xl ">
+    <li className="text-lg text-secondary md:text-xl ">
       <NavLink to="/allGroups">All Groups</NavLink>
     </li>
-    <li className="text-lg text-white md:text-xl ">
+    <li className="text-lg text-secondary md:text-xl ">
       <NavLink to="/createGroup">Create Group</NavLink>
     </li>
-    <li className="text-lg text-white md:text-xl ">
+    <li className="text-lg text-secondary md:text-xl ">
       <NavLink to="/myGroups">My Groups</NavLink>
     </li>
   </>
@@ -27,7 +27,7 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="text-white mr-5 lg:hidden"
+              className=" mr-5 lg:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <MdGroups className="rounded-full border mr-2 text-white" size={20} />
+          <MdGroups className="rounded-full border mr-2" size={20} />
           <a className="text-lg md:text-2xl font-bold">
             <span className="text-primary">Hobby</span>
             <span className="text-primary">Hub</span>

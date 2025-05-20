@@ -21,6 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "allGroups",
+        loader: () => fetch("http://localhost:3000/groups"),
         Component: AllGroups
       },
       {

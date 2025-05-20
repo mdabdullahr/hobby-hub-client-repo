@@ -102,7 +102,7 @@ const Navbar = () => {
             <Link
               to="/login"
               data-aos="zoom-in"
-              className="text-base-100 bg-secondary text-sm md:text-xl font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105"
+              className="text-white bg-primary text-sm md:text-xl font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105"
             >
               Login
             </Link>

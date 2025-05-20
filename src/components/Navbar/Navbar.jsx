@@ -1,19 +1,18 @@
-import React from "react";
-import { NavLink } from "react-router";
 import { MdGroups } from "react-icons/md";
+import { Link, NavLink } from "react-router";
 
 const links = (
   <>
-    <li className="text-lg md:text-xl">
+    <li className="text-lg text-white md:text-xl">
       <NavLink to="/">Home</NavLink>
     </li>
-    <li className="text-lg md:text-xl ">
+    <li className="text-lg text-white md:text-xl ">
       <NavLink to="/allGroups">All Groups</NavLink>
     </li>
-    <li className="text-lg md:text-xl ">
+    <li className="text-lg text-white md:text-xl ">
       <NavLink to="/createGroup">Create Group</NavLink>
     </li>
-    <li className="text-lg md:text-xl ">
+    <li className="text-lg text-white md:text-xl ">
       <NavLink to="/myGroups">My Groups</NavLink>
     </li>
   </>
@@ -21,11 +20,15 @@ const links = (
 
 const Navbar = () => {
   return (
-    <div className="bg-gray-300 border-b border-gray-100">
+    <div className="fixed top-0 left-0 w-full z-50 bg-transparent bg-opacity-50 backdrop-blur-md">
       <div className="navbar w-11/12 mx-auto py-3">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="text-white mr-5 lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -44,24 +47,27 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-gray-400 bg-opacity-50 backdrop-blur-md rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
-          <MdGroups className="rounded-full border mr-2" size={20} />
+          <MdGroups className="rounded-full border mr-2 text-white" size={20} />
           <a className="text-lg md:text-2xl font-bold">
             <span className="text-primary">Hobby</span>
-            <span className="text-secondary">Hub</span>
+            <span className="text-primary">Hub</span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="text-sm md:text-xl bg-primary text-base-200 rounded px-5 py-2 cursor-pointer">
+          <Link
+            to="/login"
+            className="text-sm md:text-xl bg-primary text-base-200 rounded px-5 py-2 cursor-pointer"
+          >
             Login
-          </a>
+          </Link>
         </div>
       </div>
     </div>

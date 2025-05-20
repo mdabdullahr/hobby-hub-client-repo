@@ -1,9 +1,8 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Slider = () => {
   return (
@@ -16,52 +15,33 @@ const Slider = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
-        className="w-full h-[200px] md:h-[400px] lg:h-[875px] xl:h-[980px]"
+        className="w-full h-[200px] md:h-[400px] lg:h-[1050px]"
       >
         {/* Slide 1 */}
         <SwiperSlide>
           <div className="relative w-full h-full">
             <img
-              src="https://i.ibb.co/Dn9L2TC/photography.jpg"
+              src="https://i.ibb.co/btmFnFW/istockphoto-1431068534-612x612.jpg"
               alt="Workshop"
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-4 md:bottom-10 left-4 md:left-10 md:bg-black bg-opacity-60 text-white p-2 md:p-4 rounded max-w-[90%] md:max-w-md transition-transform duration-500 hover:scale-105">
               <h2 className="text-base md:text-2xl font-bold">
-                Photography Event
+                A person draws in art class
               </h2>
               <p className="text-sm md:text-base">
-                Learn and upgrade your photography skills with expert-led sessions.
+                Want to practice art? The local painting circle is waiting for
+                you!
               </p>
             </div>
           </div>
         </SwiperSlide>
-       
 
         {/* Slide 2 */}
         <SwiperSlide>
           <div className="relative w-full h-full">
             <img
-              src="https://i.ibb.co/jk92M6Bm/painting.jpg"
-              alt="Art Exhibition"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute bottom-4 md:bottom-10 left-4 md:left-10 md:bg-black bg-opacity-60 text-white p-2 md:p-4 rounded max-w-[90%] md:max-w-md transition-transform duration-500 hover:scale-105">
-              <h2 className="text-base md:text-2xl font-bold">
-                Modern Painting Expo
-              </h2>
-              <p className="text-sm md:text-base">
-                Explore local creativity through stunning art pieces.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-
-        {/* Slide 3 */}
-         <SwiperSlide>
-          <div className="relative w-full h-full">
-            <img
-              src="https://i.ibb.co/VW1Shbkb/hiker.jpg"
+              src="https://i.ibb.co/1JGGL08S/istockphoto-483629308-612x612.jpg"
               alt="Hiking group image"
               className="w-full h-full object-cover"
             />
@@ -70,7 +50,7 @@ const Slider = () => {
               className="absolute bottom-4 md:bottom-10 left-4 md:left-10 md:bg-black bg-opacity-60 text-white p-2 md:p-4 rounded max-w-[90%] md:max-w-md transition-transform duration-500 hover:scale-105"
             >
               <h2 className="text-base md:text-2xl font-bold">
-                Hiking Crews
+                Hiking team trekking in the mountains
               </h2>
               <p className="text-sm md:text-base">
                 Experience local hiking crews events.
@@ -83,16 +63,14 @@ const Slider = () => {
         <SwiperSlide>
           <div className="relative w-full h-full">
             <img
-              src="https://i.ibb.co/C39Wdn5j/book.jpg"
+              src="https://i.ibb.co/zVsw3kYR/books2.jpg"
               alt="Conference"
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-4 md:bottom-10 left-4 md:left-10 md:bg-black bg-opacity-60 text-white p-2 md:p-4 rounded max-w-[90%] md:max-w-md transition-transform duration-500 hover:scale-105">
-              <h2 className="text-base md:text-2xl font-bold">
-                Book Club 2025
-              </h2>
+              <h2 className="text-base md:text-2xl font-bold">Book Club</h2>
               <p className="text-sm md:text-base">
-                A cozy gathering for book lovers to discuss and share thoughts on their latest reads.
+                Love reading books? Join readers like you now!
               </p>
             </div>
           </div>

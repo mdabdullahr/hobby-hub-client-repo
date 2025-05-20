@@ -1,9 +1,13 @@
-import { createBrowserRouter } from "react-router";
+import {
+  createBrowserRouter,
+} from "react-router";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/Home/Home";
 import AllGroups from "../Pages/AllGroups/AllGroups";
 import CreateGroup from "../Pages/CreateGroup/CreateGroup";
 import MyGroups from "../Pages/MyGroups/MyGroups";
+import Register from "../Pages/Register/Register";
+import Login from "../Pages/Login/Login";
 
 export const router = createBrowserRouter([
   {
@@ -12,21 +16,28 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component:Home
+        Component: Home
       },
       {
         path: "allGroups",
         Component: AllGroups
       },
       {
-        path: "CreateGroup",
-        element: <CreateGroup></CreateGroup>
+        path: "createGroup",
+        Component: CreateGroup
       },
       {
-        path: "MyGroups",
-        element: <MyGroups></MyGroups>
+        path: "myGroups",
+        Component: MyGroups
+      },
+      {
+        path: "register",
+        Component: Register
+      },
+      {
+        path: "login",
+        Component: Login
       }
-
     ]
   },
 ]);

@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const AllGroups = () => {
   const groups = useLoaderData();
@@ -57,9 +57,9 @@ const AllGroups = () => {
                     {group.email}
                   </td>
                   <td>
-                    <button className="text-xs md:text-sm lg:text-base bg-indigo-600 hover:bg-indigo-700 px-3 md:px-5 py-1.5 md:py-2 text-white rounded transition-all duration-200">
+                    <Link to={`/groupDetail/${group._id}`} className="text-xs md:text-sm lg:text-base bg-indigo-600 hover:bg-indigo-700 px-3 md:px-5 py-1.5 md:py-2 text-white rounded transition-all duration-200">
                       See More
-                    </button>
+                    </Link>
                   </td>
                 </tr>
               ))}

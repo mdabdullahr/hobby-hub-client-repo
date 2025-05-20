@@ -3,16 +3,16 @@ import { Link, NavLink } from "react-router";
 
 const links = (
   <>
-    <li className="text-lg text-secondary md:text-xl">
+    <li className="text-lg text-black md:text-xl">
       <NavLink to="/">Home</NavLink>
     </li>
-    <li className="text-lg text-secondary md:text-xl ">
+    <li className="text-lg text-black md:text-xl ">
       <NavLink to="/allGroups">All Groups</NavLink>
     </li>
-    <li className="text-lg text-secondary md:text-xl ">
+    <li className="text-lg text-black md:text-xl ">
       <NavLink to="/createGroup">Create Group</NavLink>
     </li>
-    <li className="text-lg text-secondary md:text-xl ">
+    <li className="text-lg text-black md:text-xl ">
       <NavLink to="/myGroups">My Groups</NavLink>
     </li>
   </>

@@ -1,7 +1,59 @@
+import { useContext } from "react";
 import { FaEnvelope, FaLock, FaUser, FaPhotoVideo } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const { createUser, updateUser, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    if (!/[A-Z]/.test(password)) {
+      toast.error("Password must contain at least one uppercase letter.");
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      toast.error("Password must contain at least one lowercase letter.");
+      return;
+    }
+
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters long.");
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+            Swal.fire({
+              title: "Register Successfully...!",
+              icon: "success",
+              draggable: true,
+            });
+            navigate("/");
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error("Register fail" + errorMessage);
+      });
+  };
   return (
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
@@ -14,7 +66,7 @@ const Register = () => {
           <h2 className="text-2xl text-center font-bold">Register</h2>
         </div>
 
-        <form className="space-y-4">
+        <form onSubmit={handleRegister} className="space-y-4">
           {/* Name Field */}
           <div>
             <label className="block mb-1">Name</label>
@@ -23,6 +75,7 @@ const Register = () => {
                 <FaUser />
               </span>
               <input
+                name="name"
                 type="text"
                 className="w-full pl-10 pr-4 py-2 rounded-md border  bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 placeholder="Enter your name"
@@ -38,6 +91,7 @@ const Register = () => {
                 <FaPhotoVideo />
               </span>
               <input
+                name="photo"
                 type="text"
                 className="w-full pl-10 pr-4 py-2 rounded-md border  bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 placeholder="Enter your photoURL"
@@ -52,6 +106,7 @@ const Register = () => {
                 <FaEnvelope />
               </span>
               <input
+                name="email"
                 type="email"
                 className="w-full pl-10 pr-4 py-2 rounded-md border  bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 placeholder="Enter your email"
@@ -68,6 +123,7 @@ const Register = () => {
                 <FaLock />
               </span>
               <input
+                name="password"
                 type="password"
                 className="w-full pl-10 pr-4 py-2 rounded-md border bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 placeholder="Enter your password"
@@ -78,7 +134,7 @@ const Register = () => {
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full py-2 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition"
+            className="w-full cursor-pointer py-2 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition"
           >
             Register
           </button>

@@ -1,12 +1,12 @@
-import Slider from "../../components/Slider/Slider";
+import Banner from '../../components/Banner/Banner.jsx'
 
 const Home = () => {
   return (
     <div className="mb-10">
-      <Slider></Slider>
+      <Banner></Banner>
       <section className="my-10 lg:my-20 w-11/12 lg:w-10/12 mx-auto min-h-screen">
-        <h2 className="text-2xl md:text-4xl lg:text-5xl specific-text text-center font-bold">Featured Groups</h2>
-        <p className="text-center text-sm md:text-lg lg:text-xl mt-5 text-accent">Featured Groups are handpicked ongoing hobby or interest groups from our platform, specially curated for you. Here, you’ll find active members collaborating, making new friends, and growing their skills together. These groups represent the heart and enthusiasm of our community. Join your favorite group now to learn something new and have fun!
+        <h2 className="text-2xl text-orange-500 md:text-4xl lg:text-5xl specific-text text-center font-bold">Featured Groups</h2>
+        <p className="text-center text-sm md:text-lg lg:text-xl mt-5 text-gray-600 max-w-7xl mx-auto">Featured Groups are handpicked ongoing hobby or interest groups from our platform, specially curated for you. Here, you’ll find active members collaborating, making new friends, and growing their skills together. These groups represent the heart and enthusiasm of our community. Join your favorite group now to learn something new and have fun!
 
 </p>
       </section>

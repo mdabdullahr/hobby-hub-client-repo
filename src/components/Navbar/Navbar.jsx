@@ -7,16 +7,16 @@ import { toast } from "react-toastify";
 
 const links = (
   <>
-    <li className="text-lg text-black md:text-xl">
+    <li className="text-lg text-orange-500 md:text-xl">
       <NavLink to="/">Home</NavLink>
     </li>
-    <li className="text-lg text-black md:text-xl ">
+    <li className="text-lg text-orange-500 md:text-xl ">
       <NavLink to="/allGroups">All Groups</NavLink>
     </li>
-    <li className="text-lg text-black md:text-xl ">
+    <li className="text-lg text-orange-500 md:text-xl ">
       <NavLink to="/createGroup">Create Group</NavLink>
     </li>
-    <li className="text-lg text-black md:text-xl ">
+    <li className="text-lg text-orange-500 md:text-xl ">
       <NavLink to="/myGroups">My Groups</NavLink>
     </li>
   </>
@@ -67,10 +67,10 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <MdGroups className="rounded-full border mr-2" size={20} />
-          <a className="text-lg md:text-2xl font-bold">
-            <span className="text-primary">Hobby</span>
-            <span className="text-primary">Hub</span>
+          <MdGroups className="rounded-full border mr-2 bg-orange-500" size={30} color="#Ffffff" />
+          <a className="text-2xl md:text-3xl lg:text-4xl specific-text font-bold">
+            <span className="text-purple-500">Hobby</span>
+            <span className="text-orange-500">Hub</span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -94,7 +94,7 @@ const Navbar = () => {
             <button
               onClick={handleLogOut}
               data-aos="zoom-in"
-              className="text-white bg-primary text-sm md:text-xl font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 cursor-pointer"
+              className="text-white specific-text text-2xl bg-orange-500 font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 cursor-pointer"
             >
               LogOut
             </button>
@@ -102,7 +102,7 @@ const Navbar = () => {
             <Link
               to="/login"
               data-aos="zoom-in"
-              className="text-white bg-primary text-sm md:text-xl font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105"
+              className="text-white bg-orange-500 text-2xl specific-text font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105"
             >
               Login
             </Link>

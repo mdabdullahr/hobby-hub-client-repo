@@ -14,14 +14,17 @@ const AllGroups = () => {
       }}
     >
       <div className="mt-24 w-full max-w-7xl mx-auto">
-        <h2 className="text-center mb-6 text-primary text-2xl md:text-4xl font-bold underline">
+        <h2 className="text-2xl md:text-4xl lg:text-5xl text-purple-500 font-bold text-center specific-text">
           ALL Groups
         </h2>
+        <p className="text-center text-sm md:text-lg lg:text-xl mb-6 lg:mb-10 mt-2 px-0 lg:px-20">
+          On this page, you will be able to explore all the groups created by different users. You can view group details and learn more about each group’s purpose and members. Please note that you cannot update or delete any groups from this section, as it is for informational purposes only.
+        </p>
 
-        <div className="overflow-x-auto bg-white rounded-xl shadow-md">
+        <div className="overflow-x-auto rounded-xl shadow-md">
           <table className="table w-full text-center md:text-left">
             {/* head */}
-            <thead className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+            <thead className="bg-gradient-to-r from-indigo-300 to-red-100 text-purple-600">
               <tr>
                 <th className="text-sm md:text-base lg:text-lg">No.</th>
                 <th className="text-sm md:text-base lg:text-lg">Group Name</th>
@@ -59,8 +62,8 @@ const AllGroups = () => {
                   </td>
                   <td>
                     <Link to={`/groupDetail/${group._id}`}>
-                      <button className="cursor-pointer bg-[#D2B48C] text-white p-[10px] rounded">
-                        <IoMdEye size={20} />
+                      <button className="cursor-pointer rounded bg-purple-300 shadow shadow-gray-300 p-[10px]">
+                        <IoMdEye size={20}  color="#ffffff"/>
                       </button>
                     </Link>
                   </td>

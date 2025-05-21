@@ -54,7 +54,7 @@ const MyGroups = () => {
     >
       <div className="mt-24 w-full max-w-7xl mx-auto">
         <h2
-          className="text-2xl md:text-4xl lg:text-5xl text-green-800 font-bold text-center specific-text
+          className="text-2xl md:text-4xl lg:text-5xl text-purple-500 font-bold text-center specific-text
         "
         >
           Your Created Group
@@ -66,12 +66,12 @@ const MyGroups = () => {
           button and if you need to delete the group then you can delete it by
           clicking on the delete button
         </p>
-        <div className="overflow-x-auto bg-white rounded-xl shadow-md">
+        <div className="overflow-x-auto rounded-xl shadow-2xl">
           {
             myGroups.length ? 
             <table className="table w-full text-center md:text-left">
             {/* head */}
-            <thead className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+            <thead className="bg-gradient-to-r from-indigo-300 to-red-100 text-purple-600">
               <tr>
                 <th className="text-sm md:text-base lg:text-lg">No.</th>
                 <th className="text-sm md:text-base lg:text-lg">Group Name</th>
@@ -110,20 +110,20 @@ const MyGroups = () => {
                   <td>
                     <div className="flex gap-4">
                       <Link to={`/groupDetail/${group._id}`}>
-                        <button className="cursor-pointer bg-[#D2B48C] text-white p-[10px] rounded">
-                          <BsFillInfoCircleFill size={20} />
+                        <button className="cursor-pointer rounded bg-transparent shadow shadow-gray-300 p-[10px]">
+                          <BsFillInfoCircleFill size={20} color=" #17a2b8"/>
                         </button>
                       </Link>
-                      <Link to={`/updateGroup/${group._id}`}>
-                        <button className="cursor-pointer bg-black text-white p-[10px] rounded">
-                          <FaPen size={20} />
+                      <Link to={`/updateGroup/${group._id}`}> 
+                        <button className="cursor-pointer rounded bg-transparent shadow shadow-gray-300 p-[10px]">
+                          <FaPen size={20} color="#b182e3" />
                         </button>
                       </Link>
                       <button
                         onClick={() => removeGroupFromDB(group._id)}
-                        className="cursor-pointer bg-red-500 text-white p-[10px] rounded"
+                        className="cursor-pointer rounded bg-transparent shadow shadow-gray-300 p-[10px]"
                       >
-                        <MdDelete size={20} />
+                        <MdDelete size={20} color="#FF0000"/>
                       </button>
                     </div>
                   </td>

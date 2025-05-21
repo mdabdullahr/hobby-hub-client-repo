@@ -61,7 +61,9 @@ const Register = () => {
         backgroundImage: `url('https://i.ibb.co/Y495bg1M/img-122.jpg')`, // scenic bg
       }}
     >
-      <div className=" backdrop-blur-xs p-8 rounded-2xl w-full max-w-md shadow shadow-white text-white">
+      <div
+       data-aos="zoom-in"
+        className="transition-transform duration-500 hover:scale-105 backdrop-blur-xs p-8 rounded-2xl w-full max-w-md shadow shadow-white text-white">
         <div className="mb-4">
           <h2 className="text-2xl text-center font-bold">Register</h2>
         </div>

@@ -50,8 +50,9 @@ const CreateGroup = () => {
     >
       <div className="mt-24 w-11/12 lg:w-10/12">
         <form
+           data-aos="zoom-in"
           onSubmit={handleCreateGroup}
-          className="max-w-6xl space-y-6 text-secondary shadow-2xl p-5 md:p-10 lg:p-16"
+          className="max-w-6xl space-y-6 text-secondary shadow-2xl p-5 md:p-10 lg:p-16 transition-transform duration-500 hover:scale-105 rounded-2xl"
         >
           <h2 className="text-center mb-10 text-2xl md:text-4xl specific-text font-bold text-purple-500">
             Create Group
@@ -67,7 +68,7 @@ const CreateGroup = () => {
               name="groupName"
               type="text"
               required
-              className="w-full rounded-md p-2 bg-opacity-10 bg-white  focus:outline-none"
+              className="w-full rounded-md p-2  bg-white  focus:outline-none"
               placeholder="Enter group name"
             />
           </div>
@@ -195,7 +196,8 @@ const CreateGroup = () => {
           {/* Create Button */}
           <button
             type="submit"
-            className="w-full cursor-pointer bg-gradient-to-r from-indigo-300 to-red-100 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition"
+             data-aos="zoom-in"
+            className="w-full cursor-pointer bg-gradient-to-r from-indigo-300 to-red-100 text-purple-600 font-semibold py-3 rounded-md text-2xl specific-text transition-transform duration-500 hover:scale-105"
           >
             Create
           </button>

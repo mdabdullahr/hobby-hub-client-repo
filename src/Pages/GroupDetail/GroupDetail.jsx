@@ -28,7 +28,7 @@ const GroupDetail = () => {
             <p className="text-sm lg:text-xl"><strong>Created By : </strong>{name}</p>
             <p className="text-sm lg:text-xl"><strong>Admin Email : </strong>{email}</p>
             <p className="text-sm lg:text-xl"><strong>Description : </strong>{description}</p>
-            <button className="w-full bg-blue-600 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition cursor-pointer">Join Group</button>
+            <button  data-aos="zoom-in" className="transition-transform duration-500 hover:scale-105 w-full cursor-pointer bg-gradient-to-r from-indigo-300 to-red-100 text-purple-600 font-semibold py-3 rounded-md text-2xl specific-text">Join Group</button>
           </div>
         </div>
       </div>

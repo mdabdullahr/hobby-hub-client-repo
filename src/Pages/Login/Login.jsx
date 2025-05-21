@@ -49,10 +49,12 @@ const Login = () => {
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
       style={{
-        backgroundImage: `url('https://i.ibb.co/Y495bg1M/img-122.jpg')`, // scenic bg
+        backgroundImage: `url('https://i.ibb.co/1JGGL08S/istockphoto-483629308-612x612.jpg')`, // scenic bg
       }}
     >
-      <div className=" backdrop-blur-xs p-8 rounded-2xl w-full max-w-md text-white shadow shadow-white ">
+      <div
+       data-aos="zoom-in"
+        className="transition-transform duration-500 hover:scale-105 backdrop-blur-xs p-8 rounded-2xl w-full max-w-md text-white shadow shadow-white ">
         <div className=" mb-4">
           <h2 className="text-2xl text-center font-bold">Login</h2>
         </div>
@@ -107,7 +109,7 @@ const Login = () => {
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full py-2 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition"
+            className="w-full cursor-pointer py-2 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition"
           >
             Login
           </button>

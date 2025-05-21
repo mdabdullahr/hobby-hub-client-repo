@@ -114,7 +114,7 @@ const MyGroups = () => {
                           <BsFillInfoCircleFill size={20} />
                         </button>
                       </Link>
-                      <Link>
+                      <Link to={`/updateGroup/${group._id}`}>
                         <button className="cursor-pointer bg-black text-white p-[10px] rounded">
                           <FaPen size={20} />
                         </button>

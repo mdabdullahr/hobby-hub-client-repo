@@ -10,6 +10,7 @@ import Login from "../Pages/Login/Login";
 import PrivateRoutes from "../Provider/PrivateRoutes";
 import GroupDetail from "../Pages/GroupDetail/GroupDetail";
 import MyGroups from "../Pages/MyGroups/MyGroups";
+import UpdateGroup from "../Pages/UpdateGroup/UpdateGroup";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,11 @@ export const router = createBrowserRouter([
       {
         path: "myGroups",
         element: <PrivateRoutes><MyGroups></MyGroups></PrivateRoutes>
+      },
+      {
+        path: "updateGroup/:id",
+        loader: ({params}) => fetch(`http://localhost:3000/groups/${params.id}`),
+        element: <PrivateRoutes><UpdateGroup></UpdateGroup></PrivateRoutes>
       }
     ]
   },

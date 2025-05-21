@@ -109,7 +109,7 @@ const MyGroups = () => {
                   </td>
                   <td>
                     <div className="flex gap-4">
-                      <Link>
+                      <Link to={`/groupDetail/${group._id}`}>
                         <button className="cursor-pointer bg-[#D2B48C] text-white p-[10px] rounded">
                           <BsFillInfoCircleFill size={20} />
                         </button>

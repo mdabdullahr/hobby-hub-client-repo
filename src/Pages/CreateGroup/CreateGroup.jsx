@@ -45,18 +45,19 @@ const CreateGroup = () => {
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
       style={{
-        backgroundImage: `url('https://i.ibb.co/Gv48Smtr/networking.jpg')`, // scenic bg
+        backgroundImage: `url('https://i.ibb.co/qMQF3MBw/cartoon-group.jpg')`, // scenic bg
       }}
     >
       <div className="mt-24 w-11/12 lg:w-10/12">
         <form
           onSubmit={handleCreateGroup}
-          className="max-w-3xl mx-auto bg-transparent backdrop-blur-3xl shadow-sm shadow-gray-300 p-10 rounded-lg space-y-5 text-secondary"
+          className="max-w-6xl space-y-6 text-secondary shadow-2xl p-5 md:p-10 lg:p-16"
         >
-          <h2 className="text-center underline text-2xl font-bold text-secondary">
+          <h2 className="text-center mb-10 text-2xl md:text-4xl specific-text font-bold text-purple-500">
             Create Group
           </h2>
-          {/* Group Name */}
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+           {/* Group Name */}
           <div>
             <label className="block mb-1 font-semibold" htmlFor="groupName">
               Group Name <span className="text-red-500">*</span>
@@ -66,7 +67,7 @@ const CreateGroup = () => {
               name="groupName"
               type="text"
               required
-              className="w-full rounded-md p-2 border-2 border-gray-300  bg-opacity-10  focus:outline-none"
+              className="w-full rounded-md p-2 bg-opacity-10 bg-white  focus:outline-none"
               placeholder="Enter group name"
             />
           </div>
@@ -79,7 +80,7 @@ const CreateGroup = () => {
             <select
               id="hobbyCategory"
               name="hobbyCategory"
-              className="w-full rounded-md p-2 border-2 border-gray-300  bg-opacity-10  focus:outline-none"
+              className="w-full rounded-md p-2  bg-white  focus:outline-none"
             >
               {hobbyCategories.map((cat) => (
                 <option key={cat} value={cat}>
@@ -87,21 +88,6 @@ const CreateGroup = () => {
                 </option>
               ))}
             </select>
-          </div>
-
-          {/* Description */}
-          <div>
-            <label className="block mb-1 font-semibold" htmlFor="description">
-              Description <span className="text-red-500">*</span>
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              required
-              rows={4}
-              className="w-full rounded-md p-2 border-2 border-gray-300  bg-opacity-10  focus:outline-none"
-              placeholder="Write a brief description"
-            />
           </div>
 
           {/* Meeting Location */}
@@ -117,7 +103,7 @@ const CreateGroup = () => {
               name="meetingLocation"
               type="text"
               required
-              className="w-full rounded-md p-2 border-2 border-gray-300  bg-opacity-10  focus:outline-none"
+              className="w-full rounded-md p-2 bg-white  focus:outline-none"
               placeholder="Enter meeting location"
             />
           </div>
@@ -133,7 +119,7 @@ const CreateGroup = () => {
               type="number"
               min="1"
               required
-              className="w-full rounded-md p-2 border-2 border-gray-300  bg-opacity-10  focus:outline-none"
+              className="w-full rounded-md p-2 bg-white focus:outline-none"
               placeholder="Enter max members"
             />
           </div>
@@ -148,7 +134,7 @@ const CreateGroup = () => {
               name="startDate"
               type="date"
               required
-              className="w-full rounded-md p-2 border-2 border-gray-300  bg-opacity-10  focus:outline-none"
+              className="w-full rounded-md p-2 bg-white focus:outline-none"
             />
           </div>
 
@@ -163,7 +149,7 @@ const CreateGroup = () => {
               type="url"
               required
               placeholder="image URL"
-              className="w-full rounded-md p-2 border-2 border-gray-300  bg-opacity-10  focus:outline-none"
+              className="w-full rounded-md p-2 bg-white focus:outline-none"
             />
           </div>
 
@@ -175,7 +161,7 @@ const CreateGroup = () => {
               readOnly
               name="name"
               type="text"
-              className="w-full rounded-md p-2 border-2 border-gray-300  bg-opacity-10  focus:outline-none"
+              className="w-full rounded-md p-2 bg-white  focus:outline-none"
             />
           </div>
 
@@ -187,14 +173,29 @@ const CreateGroup = () => {
               readOnly
               name="email"
               type="email"
-              className="w-full rounded-md p-2 border-2 border-gray-300  bg-opacity-10  focus:outline-none"
+              className="w-full rounded-md p-2 bg-white  focus:outline-none"
+            />
+          </div>
+         </div>
+         {/* Description */}
+          <div>
+            <label className="block mb-1 font-semibold" htmlFor="description">
+              Description <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              required
+              rows={4}
+              className="w-full rounded-md p-2  bg-white focus:outline-none"
+              placeholder="Write a brief description"
             />
           </div>
 
           {/* Create Button */}
           <button
             type="submit"
-            className="w-full cursor-pointer bg-blue-600 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition"
+            className="w-full cursor-pointer bg-gradient-to-r from-indigo-300 to-red-100 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition"
           >
             Create
           </button>

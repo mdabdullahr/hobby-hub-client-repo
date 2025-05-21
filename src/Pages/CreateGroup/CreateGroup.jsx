@@ -45,13 +45,13 @@ const CreateGroup = () => {
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
       style={{
-        backgroundImage: `url('https://i.ibb.co/qMQF3MBw/cartoon-group.jpg')`, // scenic bg
+        backgroundImage: `url('https://i.ibb.co/Gv48Smtr/networking.jpg')`, // scenic bg
       }}
     >
       <div className="mt-24 w-11/12 lg:w-10/12">
         <form
           onSubmit={handleCreateGroup}
-          className="max-w-3xl bg-transparent backdrop-blur-3xl shadow-sm shadow-gray-300 p-10 rounded-lg space-y-5 text-secondary"
+          className="max-w-3xl mx-auto bg-transparent backdrop-blur-3xl shadow-sm shadow-gray-300 p-10 rounded-lg space-y-5 text-secondary"
         >
           <h2 className="text-center underline text-2xl font-bold text-secondary">
             Create Group

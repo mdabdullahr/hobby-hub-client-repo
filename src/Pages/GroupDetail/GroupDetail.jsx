@@ -19,7 +19,7 @@ const GroupDetail = () => {
         <div className="overflow-x-auto backdrop-blur-3xl rounded-xl shadow-md">
             
           <img className="w-full h-full md:h-[400px] bg-cover" src={imageUrl} alt="group Image" />
-          <div className="p-10 specific-text text-secondary space-y-5">
+          <div className="p-10 text-secondary space-y-5">
             <h2 className="text-2xl lg:text-4xl font-bold flex items-center gap-2"><MdGroups className="border rounded-full"/> {groupName}</h2>
             <h5 className="txt-lg lg:text-2xl"><strong>Category :</strong> {hobbyCategory}</h5>
             <p className="text-sm lg:text-xl"><strong>Meeting Location : </strong>{meetingLocation}</p>
@@ -28,7 +28,7 @@ const GroupDetail = () => {
             <p className="text-sm lg:text-xl"><strong>Created By : </strong>{name}</p>
             <p className="text-sm lg:text-xl"><strong>Admin Email : </strong>{email}</p>
             <p className="text-sm lg:text-xl"><strong>Description : </strong>{description}</p>
-            <button className="w-full bg-blue-600 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition">Join Group</button>
+            <button className="w-full bg-blue-600 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition cursor-pointer">Join Group</button>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { IoMdEye } from "react-icons/io";
 import { Link, useLoaderData } from "react-router";
 
 const AllGroups = () => {
@@ -9,16 +10,16 @@ const AllGroups = () => {
     <div
       className="min-h-screen bg-cover bg-center p-4 md:p-6"
       style={{
-        backgroundImage: "url('https://i.ibb.co/Gv48Smtr/networking.jpg')",
+        backgroundImage: "url('https://i.ibb.co/4ZG779SZ/paingting.jpg')",
       }}
     >
       <div className="mt-24 w-full max-w-7xl mx-auto">
-        <h2 className="text-center mb-6 md:mb-10 text-primary text-2xl md:text-4xl font-bold underline">
+        <h2 className="text-center mb-6 text-primary text-2xl md:text-4xl font-bold underline">
           ALL Groups
         </h2>
 
         <div className="overflow-x-auto bg-white rounded-xl shadow-md">
-          <table className="table w-full text-center">
+          <table className="table w-full text-center md:text-left">
             {/* head */}
             <thead className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
               <tr>
@@ -57,8 +58,10 @@ const AllGroups = () => {
                     {group.email}
                   </td>
                   <td>
-                    <Link to={`/groupDetail/${group._id}`} className="text-xs md:text-sm lg:text-base bg-indigo-600 hover:bg-indigo-700 px-3 md:px-5 py-1.5 md:py-2 text-white rounded transition-all duration-200">
-                      See More
+                    <Link to={`/groupDetail/${group._id}`}>
+                      <button className="cursor-pointer bg-[#D2B48C] text-white p-[10px] rounded">
+                        <IoMdEye size={20} />
+                      </button>
                     </Link>
                   </td>
                 </tr>

@@ -5,11 +5,11 @@ import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/Home/Home";
 import AllGroups from "../Pages/AllGroups/AllGroups";
 import CreateGroup from "../Pages/CreateGroup/CreateGroup";
-import MyGroups from "../Pages/MyGroups/MyGroups";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import PrivateRoutes from "../Provider/PrivateRoutes";
 import GroupDetail from "../Pages/GroupDetail/GroupDetail";
+import MyGroups from "../Pages/MyGroups/MyGroups";
 
 export const router = createBrowserRouter([
   {
@@ -30,10 +30,6 @@ export const router = createBrowserRouter([
         element: <PrivateRoutes><CreateGroup></CreateGroup></PrivateRoutes>
       },
       {
-        path: "myGroups",
-        element: <PrivateRoutes><MyGroups></MyGroups></PrivateRoutes>
-      },
-      {
         path: "register",
         Component: Register
       },
@@ -45,6 +41,10 @@ export const router = createBrowserRouter([
         path: "groupDetail/:id",
         loader: ({params}) => fetch(`http://localhost:3000/groups/${params.id}`),
         element: <PrivateRoutes><GroupDetail></GroupDetail></PrivateRoutes>
+      },
+      {
+        path: "myGroups",
+        element: <PrivateRoutes><MyGroups></MyGroups></PrivateRoutes>
       }
     ]
   },

@@ -11,7 +11,9 @@ const MyGroups = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/groups?emailParams=${user?.email}`)
+    fetch(
+      `https://hobbyhub-11-server-site.vercel.app/groups?emailParams=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyGroups(data));
   }, [user?.email]);
@@ -27,7 +29,7 @@ const MyGroups = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/groups/${_id}`, {
+        fetch(`https://hobbyhub-11-server-site.vercel.app/groups/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -139,14 +141,13 @@ const MyGroups = () => {
               </h2>
               <p className="text-center font-semibold text-lg lg:text-2xl">
                 Right now your no group available here, please...
-                </p>
-                <Link
-                  className="text-white bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded mt-2 flex justify-center items-center font-semibold"
-                  to="/createGroup"
-                >
-                  Create Group
-                </Link>
-              
+              </p>
+              <Link
+                className="text-white bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded mt-2 flex justify-center items-center font-semibold"
+                to="/createGroup"
+              >
+                Create Group
+              </Link>
             </div>
           )}
         </div>

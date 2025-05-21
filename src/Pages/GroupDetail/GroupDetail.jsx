@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router";
+import { useContext, useState } from "react";
 import { MdGroups } from "react-icons/md";
-import Swal from "sweetalert2"; 
+import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const GroupDetail = () => {
@@ -26,16 +26,24 @@ const GroupDetail = () => {
 
   const isAlreadyMember = user && currentMembers.includes(user.email);
 
+  // Start date চেক: যদি আজকের তারিখ startDate এর পরে হয়, গ্রুপ ইনঅ্যাকটিভ
+  const now = new Date();
+  const groupStartDate = new Date(startDate);
+  const isGroupActive = groupStartDate >= now;
+
   const handleJoin = async () => {
     setIsJoining(true);
     try {
-      const res = await fetch(`http://localhost:3000/groups/${_id}/join`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: user.email }),
-      });
+      const res = await fetch(
+        `https://hobbyhub-11-server-site.vercel.app/groups/${_id}/join`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        }
+      );
 
       const data = await res.json();
 
@@ -107,34 +115,41 @@ const GroupDetail = () => {
               <strong>Description:</strong> {description}
             </p>
 
-            <button
-              onClick={handleJoin}
-              disabled={
-                isAlreadyMember ||
-                isJoining ||
-                currentMembers.length >= Number(maxMembers)
-              }
-              className={`w-full cursor-pointer border-4 border-white shadow text-xl py-3 rounded-md specific-text transition-transform duration-500 ${
-                isAlreadyMember || currentMembers.length >= Number(maxMembers)
-                  ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                  : "bg-transparent hover:bg-orange-600 hover:text-white text-orange-600"
-              }`}
-              title={
-                isAlreadyMember
-                  ? "You have already joined"
+            {/* যদি গ্রুপ start date পাস হয়ে যায়, তখন বাটনের জায়গায় মেসেজ দেখাবে */}
+            {!isGroupActive ? (
+              <p className="text-center text-red-600 font-semibold text-lg">
+                This group is no longer active.
+              </p>
+            ) : (
+              <button
+                onClick={handleJoin}
+                disabled={
+                  isAlreadyMember ||
+                  isJoining ||
+                  currentMembers.length >= Number(maxMembers)
+                }
+                className={`w-full cursor-pointer border-4 border-white shadow text-xl py-3 rounded-md specific-text transition-transform duration-500 ${
+                  isAlreadyMember || currentMembers.length >= Number(maxMembers)
+                    ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                    : "bg-transparent hover:bg-orange-600 hover:text-white text-orange-600"
+                }`}
+                title={
+                  isAlreadyMember
+                    ? "You have already joined"
+                    : currentMembers.length >= Number(maxMembers)
+                    ? "Group is full"
+                    : ""
+                }
+              >
+                {isAlreadyMember
+                  ? "Already Joined"
+                  : isJoining
+                  ? "Joining..."
                   : currentMembers.length >= Number(maxMembers)
-                  ? "Group is full"
-                  : ""
-              }
-            >
-              {isAlreadyMember
-                ? "Already Joined"
-                : isJoining
-                ? "Joining..."
-                : currentMembers.length >= Number(maxMembers)
-                ? "Group Full"
-                : "Join Group"}
-            </button>
+                  ? "Group Full"
+                  : "Join Group"}
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -18,13 +18,15 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/groups"),
+        loader: () =>
+          fetch("https://hobbyhub-11-server-site.vercel.app/groups"),
         Component: Home,
         hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "allGroups",
-        loader: () => fetch("http://localhost:3000/groups"),
+        loader: () =>
+          fetch("https://hobbyhub-11-server-site.vercel.app/groups"),
         Component: AllGroups,
         hydrateFallbackElement: <Loader></Loader>,
       },
@@ -47,7 +49,9 @@ export const router = createBrowserRouter([
       {
         path: "groupDetail/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/groups/${params.id}`),
+          fetch(
+            `https://hobbyhub-11-server-site.vercel.app/groups/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <GroupDetail></GroupDetail>
@@ -66,7 +70,9 @@ export const router = createBrowserRouter([
       {
         path: "updateGroup/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/groups/${params.id}`),
+          fetch(
+            `https://hobbyhub-11-server-site.vercel.app/groups/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <UpdateGroup></UpdateGroup>

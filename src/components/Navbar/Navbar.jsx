@@ -69,8 +69,8 @@ const Navbar = () => {
           </div>
           <MdGroups className="rounded-full border mr-2 bg-orange-500" size={30} color="#Ffffff" />
           <a className="text-2xl md:text-3xl lg:text-4xl specific-text font-bold">
-            <span className="text-purple-500">Hobby</span>
-            <span className="text-orange-500">Hub</span>
+            <span className="text-orange-600">Hobby</span>
+            <span className="text-orange-600">Hub</span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -80,7 +80,7 @@ const Navbar = () => {
           {user && (
             <div className="relative group">
               <img
-                className="w-6 md:w-12 h-6 md:h-12 rounded-full"
+                className="w-6 md:w-12 h-6 md:h-12 rounded-full border border-orange-600"
                 src={user.photoURL}
                 alt="userImg"
               />

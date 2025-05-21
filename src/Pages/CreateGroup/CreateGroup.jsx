@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const hobbyCategories = [
   "Drawing & Painting",
@@ -21,6 +21,8 @@ const CreateGroup = () => {
     const form = e.target;
     const formData = new FormData(form);
     const formObject = Object.fromEntries(formData.entries());
+    const members = [];
+    const sendDataDB = {...formObject, members}
 
     // Send Data to db
     fetch("http://localhost:3000/groups", {
@@ -28,7 +30,7 @@ const CreateGroup = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(formObject),
+      body: JSON.stringify(sendDataDB),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -50,135 +52,138 @@ const CreateGroup = () => {
     >
       <div className="mt-24 w-11/12 lg:w-10/12">
         <form
-           data-aos="zoom-in"
+          data-aos="zoom-in"
           onSubmit={handleCreateGroup}
           className="max-w-6xl space-y-6 text-secondary shadow-2xl p-5 md:p-10 lg:p-16 transition-transform duration-500 hover:scale-105 rounded-2xl"
         >
-          <h2 className="text-center mb-10 text-2xl md:text-4xl specific-text font-bold text-purple-500">
+          <h2 className="text-center mb-10 text-2xl md:text-4xl specific-text font-bold text-orange-500">
             Create Group
           </h2>
-         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-           {/* Group Name */}
-          <div>
-            <label className="block mb-1 font-semibold" htmlFor="groupName">
-              Group Name <span className="text-red-500">*</span>
-            </label>
-            <input
-              id="groupName"
-              name="groupName"
-              type="text"
-              required
-              className="w-full rounded-md p-2  bg-white  focus:outline-none"
-              placeholder="Enter group name"
-            />
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Group Name */}
+            <div>
+              <label className="block mb-1 font-semibold" htmlFor="groupName">
+                Group Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="groupName"
+                name="groupName"
+                type="text"
+                required
+                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+                placeholder="Enter group name"
+              />
+            </div>
 
-          {/* Hobby Category */}
-          <div>
-            <label className="block mb-1 font-semibold" htmlFor="hobbyCategory">
-              Hobby Category
-            </label>
-            <select
-              id="hobbyCategory"
-              name="hobbyCategory"
-              className="w-full rounded-md p-2  bg-white  focus:outline-none"
-            >
-              {hobbyCategories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>
-              ))}
-            </select>
-          </div>
+            {/* Hobby Category */}
+            <div>
+              <label
+                className="block mb-1 font-semibold"
+                htmlFor="hobbyCategory"
+              >
+                Hobby Category
+              </label>
+              <select
+                id="hobbyCategory"
+                name="hobbyCategory"
+                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+              >
+                {hobbyCategories.map((cat) => (
+                  <option key={cat} value={cat}>
+                    {cat}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-          {/* Meeting Location */}
-          <div>
-            <label
-              className="block mb-1 font-semibold"
-              htmlFor="meetingLocation"
-            >
-              Meeting Location <span className="text-red-500">*</span>
-            </label>
-            <input
-              id="meetingLocation"
-              name="meetingLocation"
-              type="text"
-              required
-              className="w-full rounded-md p-2 bg-white  focus:outline-none"
-              placeholder="Enter meeting location"
-            />
-          </div>
+            {/* Meeting Location */}
+            <div>
+              <label
+                className="block mb-1 font-semibold"
+                htmlFor="meetingLocation"
+              >
+                Meeting Location <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="meetingLocation"
+                name="meetingLocation"
+                type="text"
+                required
+                className="w-full rounded-md p-2 bg-white  focus:outline-none"
+                placeholder="Enter meeting location"
+              />
+            </div>
 
-          {/* Max Members */}
-          <div>
-            <label className="block mb-1 font-semibold" htmlFor="maxMembers">
-              Max Members <span className="text-red-500">*</span>
-            </label>
-            <input
-              id="maxMembers"
-              name="maxMembers"
-              type="number"
-              min="1"
-              required
-              className="w-full rounded-md p-2 bg-white focus:outline-none"
-              placeholder="Enter max members"
-            />
-          </div>
+            {/* Max Members */}
+            <div>
+              <label className="block mb-1 font-semibold" htmlFor="maxMembers">
+                Max Members <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="maxMembers"
+                name="maxMembers"
+                type="number"
+                min="1"
+                required
+                className="w-full rounded-md p-2 bg-white focus:outline-none"
+                placeholder="Enter max members"
+              />
+            </div>
 
-          {/* Start Date */}
-          <div>
-            <label className="block mb-1 font-semibold" htmlFor="startDate">
-              Start Date <span className="text-red-500">*</span>
-            </label>
-            <input
-              id="startDate"
-              name="startDate"
-              type="date"
-              required
-              className="w-full rounded-md p-2 bg-white focus:outline-none"
-            />
-          </div>
+            {/* Start Date */}
+            <div>
+              <label className="block mb-1 font-semibold" htmlFor="startDate">
+                Start Date <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="startDate"
+                name="startDate"
+                type="date"
+                required
+                className="w-full rounded-md p-2 bg-white focus:outline-none"
+              />
+            </div>
 
-          {/* Image URL */}
-          <div>
-            <label className="block mb-1 font-semibold" htmlFor="imageUrl">
-              Image URL <span className="text-red-500">*</span>
-            </label>
-            <input
-              id="imageUrl"
-              name="imageUrl"
-              type="url"
-              required
-              placeholder="image URL"
-              className="w-full rounded-md p-2 bg-white focus:outline-none"
-            />
-          </div>
+            {/* Image URL */}
+            <div>
+              <label className="block mb-1 font-semibold" htmlFor="imageUrl">
+                Image URL <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="imageUrl"
+                name="imageUrl"
+                type="url"
+                required
+                placeholder="image URL"
+                className="w-full rounded-md p-2 bg-white focus:outline-none"
+              />
+            </div>
 
-          {/* User Name (readonly) */}
-          <div>
-            <label className="block mb-1 font-semibold">User Name</label>
-            <input
-              value={user.displayName}
-              readOnly
-              name="name"
-              type="text"
-              className="w-full rounded-md p-2 bg-white  focus:outline-none"
-            />
-          </div>
+            {/* User Name (readonly) */}
+            <div>
+              <label className="block mb-1 font-semibold">User Name</label>
+              <input
+                value={user.displayName}
+                readOnly
+                name="name"
+                type="text"
+                className="w-full rounded-md p-2 bg-white  focus:outline-none"
+              />
+            </div>
 
-          {/* User Email (readonly) */}
-          <div>
-            <label className="block mb-1 font-semibold">User Email</label>
-            <input
-              value={user.email}
-              readOnly
-              name="email"
-              type="email"
-              className="w-full rounded-md p-2 bg-white  focus:outline-none"
-            />
+            {/* User Email (readonly) */}
+            <div>
+              <label className="block mb-1 font-semibold">User Email</label>
+              <input
+                value={user.email}
+                readOnly
+                name="email"
+                type="email"
+                className="w-full rounded-md p-2 bg-white  focus:outline-none"
+              />
+            </div>
           </div>
-         </div>
-         {/* Description */}
+          {/* Description */}
           <div>
             <label className="block mb-1 font-semibold" htmlFor="description">
               Description <span className="text-red-500">*</span>
@@ -196,8 +201,8 @@ const CreateGroup = () => {
           {/* Create Button */}
           <button
             type="submit"
-             data-aos="zoom-in"
-            className="w-full cursor-pointer bg-gradient-to-r from-indigo-300 to-red-100 text-purple-600 font-semibold py-3 rounded-md text-2xl specific-text transition-transform duration-500 hover:scale-105"
+            data-aos="zoom-in"
+            className="w-full cursor-pointer bg-transparent border-4 border-white shadow hover:bg-orange-600 hover:text-white text-orange-600 font-semibold py-3 rounded-md text-2xl specific-text transition-transform duration-500 hover:scale-105"
           >
             Create
           </button>

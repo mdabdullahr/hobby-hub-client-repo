@@ -1,4 +1,3 @@
-import React from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
@@ -64,11 +63,11 @@ const UpdateGroup = () => {
     >
       <div className="mt-24 w-11/12 lg:w-10/12">
         <form
-         data-aos="zoom-in"
+          data-aos="zoom-in"
           onSubmit={handleUpdateGroup}
           className="max-w-6xl space-y-6 text-secondary shadow-2xl p-5 md:p-10 lg:p-16 rounded-2xl transition-transform duration-500 hover:scale-105"
         >
-          <h2 className="text-center mb-10 text-2xl md:text-4xl specific-text font-bold text-purple-500">
+          <h2 className="text-center mb-10 text-2xl md:text-4xl specific-text font-bold text-orange-500">
             Update Group
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -101,8 +100,6 @@ const UpdateGroup = () => {
                 ))}
               </select>
             </div>
-
-            
 
             {/* Meeting Location */}
             <div>
@@ -181,23 +178,23 @@ const UpdateGroup = () => {
             </div>
           </div>
           {/* Description */}
-            <div>
-              <label className="mb-1 font-semibold">Description</label>
-              <textarea
-                id="description"
-                name="description"
-                defaultValue={description}
-                rows={4}
-                className="w-full rounded-md p-2  bg-white  focus:outline-none"
-                placeholder="Write a brief description"
-              />
-            </div>
+          <div>
+            <label className="mb-1 font-semibold">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              defaultValue={description}
+              rows={4}
+              className="w-full rounded-md p-2  bg-white  focus:outline-none"
+              placeholder="Write a brief description"
+            />
+          </div>
 
           {/* Create Button */}
           <button
-           data-aos="zoom-in"
+            data-aos="zoom-in"
             type="submit"
-            className="w-full cursor-pointer bg-gradient-to-r from-indigo-300 to-red-100 text-purple-600 specific-text  font-semibold py-3 rounded-md text-2xl transition-transform duration-500 hover:scale-105"
+            className="w-full cursor-pointer bg-transparent border-4 border-white shadow hover:bg-orange-600 hover:text-white text-orange-600 font-semibold py-3 rounded-md text-2xl specific-text transition-transform duration-500 hover:scale-105"
           >
             Update
           </button>

@@ -34,13 +34,16 @@ const GroupDetail = () => {
   const handleJoin = async () => {
     setIsJoining(true);
     try {
-      const res = await fetch(`http://localhost:3000/groups/${_id}/join`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: user.email }),
-      });
+      const res = await fetch(
+        `https://hobbyhub-11-server-site.vercel.app/groups/${_id}/join`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        }
+      );
 
       const data = await res.json();
 

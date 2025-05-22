@@ -25,7 +25,7 @@ const CreateGroup = () => {
     const sendDataDB = { ...formObject, members };
 
     // Send Data to db
-    fetch("http://localhost:3000/groups", {
+    fetch("https://hobbyhub-11-server-site.vercel.app/groups", {
       method: "POST",
       headers: {
         "content-type": "application/json",

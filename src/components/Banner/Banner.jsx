@@ -11,7 +11,7 @@ const Banner = () => {
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-60 z-0"></div>
-      <div className="relative z-10">
+      <div data-aos="fade-up" className="relative z-10">
         <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white mb-4 specific-text">
           Connect Through Hobbies
         </h1>

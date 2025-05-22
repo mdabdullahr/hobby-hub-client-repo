@@ -28,7 +28,7 @@ const Home = () => {
 
       <section className="w-11/12 lg:w-10/12 mx-auto">
         {/* Featured Group */}
-        <section className="my-10 lg:my-20 ">
+        <section data-aos="fade-up" className="my-10 lg:my-20 ">
           <h2 className="text-2xl text-orange-500 md:text-4xl lg:text-5xl specific-text text-center font-bold">
             Featured Groups
           </h2>
@@ -71,7 +71,7 @@ const Home = () => {
         </section>
 
         {/* Extra static section 1 */}
-        <section className="max-w-7xl mx-auto bg-gradient-to-br from-orange-100 to-white rounded-2xl shadow-md px-8 py-12 mb-10 flex flex-col md:flex-row items-center justify-between gap-8">
+        <section data-aos="fade-up" className="max-w-7xl mx-auto bg-gradient-to-br from-orange-100 to-white rounded-2xl shadow-md px-8 py-12 mb-10 flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Left Side Content */}
           <div className="md:w-1/2 text-center md:text-left">
             <h2 className="text-4xl font-bold text-gray-600 mb-4">
@@ -85,12 +85,12 @@ const Home = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link to="/allGroups">
-                <button className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600 transition shadow-md">
+                <button className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600 transition shadow-md cursor-pointer">
                   Explore Groups
                 </button>
               </Link>
               <Link to="/createGroup">
-                <button className="border-2 border-orange-500 text-orange-500 px-6 py-3 rounded-md hover:bg-orange-100 transition shadow-md">
+                <button className="border-2 border-orange-500 text-orange-500 px-6 py-3 rounded-md hover:bg-orange-100 transition shadow-md cursor-pointer">
                   Start a New Group
                 </button>
               </Link>
@@ -108,7 +108,7 @@ const Home = () => {
         </section>
 
         {/* Extra static section 2 */}
-        <section className="max-w-7xl mx-auto bg-white shadow-xl rounded-2xl p-10 mt-20">
+        <section data-aos="fade-up" className="max-w-7xl mx-auto bg-white shadow-xl rounded-2xl p-10 my-20">
           <h2 className="text-4xl font-bold text-center text-gray-600 mb-12">
             Why Choose HobbyHub?
           </h2>

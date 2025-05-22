@@ -47,26 +47,31 @@ const MyGroups = () => {
   };
   return (
     <div
-      className="min-h-screen bg-cover bg-center p-4 md:p-6"
+      className=" bg-cover bg-center p-4 md:p-6 "
       style={{
         backgroundImage: "url('https://i.ibb.co/4ZG779SZ/paingting.jpg')",
       }}
     >
-      <div className="mt-24 w-full max-w-7xl mx-auto">
-        <h2
-          className="text-2xl md:text-4xl lg:text-5xl text-orange-500 font-bold text-center specific-text
+      <div className="mt-24 w-full max-w-7xl mx-auto mb-20">
+        <div data-aos="zoom-in">
+          <h2
+            className="text-2xl md:text-4xl lg:text-5xl text-orange-500 font-bold text-center specific-text
         "
+          >
+            Your Created Group
+          </h2>
+          <p className="text-center text-gray-500 text-sm md:text-lg lg:text-xl mb-6 lg:mb-10 mt-2 px-0 lg:px-20">
+            On this page you will be able to see all your created groups and
+            take action. You will be able to see the details of your group, if
+            you need to update the group then you can update it by clicking on
+            the update button and if you need to delete the group then you can
+            delete it by clicking on the delete button
+          </p>
+        </div>
+        <div
+          data-aos="fade-up"
+          className="overflow-x-auto rounded-xl shadow-2xl"
         >
-          Your Created Group
-        </h2>
-        <p className="text-center text-gray-500 text-sm md:text-lg lg:text-xl mb-6 lg:mb-10 mt-2 px-0 lg:px-20">
-          On this page you will be able to see all your created groups and take
-          action. You will be able to see the details of your group, if you need
-          to update the group then you can update it by clicking on the update
-          button and if you need to delete the group then you can delete it by
-          clicking on the delete button
-        </p>
-        <div className="overflow-x-auto rounded-xl shadow-2xl">
           {myGroups.length ? (
             <table className="table w-full text-center md:text-left">
               {/* head */}

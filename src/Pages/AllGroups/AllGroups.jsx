@@ -6,13 +6,13 @@ const AllGroups = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center p-4 md:p-6"
+      className=" bg-cover bg-center p-4 md:p-6"
       style={{
         backgroundImage: "url('https://i.ibb.co/4ZG779SZ/paingting.jpg')",
       }}
     >
-      <div className="mt-24 w-full max-w-7xl mx-auto">
-        <h2 className="text-2xl md:text-4xl lg:text-5xl text-orange-500 font-bold text-center specific-text">
+      <div className="mt-24 w-full max-w-7xl mx-auto mb-20">
+        <h2 data-aos="zoom-in" className="text-2xl md:text-4xl lg:text-5xl text-orange-500 font-bold text-center specific-text">
           ALL Groups
         </h2>
         <p className="text-center text-gray-500 text-sm md:text-lg lg:text-xl mb-6 lg:mb-10 mt-2 px-0 lg:px-20">
@@ -23,9 +23,9 @@ const AllGroups = () => {
           purposes only.
         </p>
 
-        <div className="overflow-x-auto rounded-xl shadow-2xl">
+        <div data-aos="fade-up" className="overflow-x-auto rounded-xl shadow-2xl">
           {groups.length ? (
-            <div className="overflow-x-auto rounded-xl shadow-md">
+            <div  className="overflow-x-auto rounded-xl shadow-md">
               <table className="table w-full text-center md:text-left">
                 {/* head */}
                 <thead className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
@@ -69,7 +69,6 @@ const AllGroups = () => {
                       <td>
                         <Link to={`/groupDetail/${group._id}`}>
                           <button className="cursor-pointer text-orange-500 text-xs md:text-sm lg:text-lg underline">
-                            {/* <IoMdEye size={20}  color="#ffffff"/> */}
                             See more
                           </button>
                         </Link>
@@ -80,7 +79,7 @@ const AllGroups = () => {
               </table>
             </div>
           ) : (
-            <div className="p-10 lg:p-20 space-y-5">
+            <div data-aos="fade-up" className="p-10 lg:p-20 space-y-5">
               <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-red-400">
                 Oops...!
               </h2>

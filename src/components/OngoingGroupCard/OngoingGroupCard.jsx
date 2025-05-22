@@ -16,13 +16,15 @@ const OngoingGroupCard = ({ group }) => {
   endDateObj.setDate(endDateObj.getDate() + 1);
   const endDate = endDateObj.toISOString().split("T")[0];
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 flex flex-col justify-between p-6">
+    <div data-aos="fade-up" className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 flex flex-col justify-between p-6">
       {imageUrl && (
-        <img
+        <div data-aos="zoom-in" className="overflow-hidden">
+          <img
           src={imageUrl}
           alt={groupName}
-          className="w-full h-40 object-cover rounded-xl mb-4"
+          className="w-full h-40 object-cover rounded-xl mb-4 transition-transform duration-500 hover:scale-90"
         />
+        </div>
       )}
 
       <div>

@@ -1,17 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 
 const AllGroups = () => {
   const groups = useLoaderData();
 
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+      const classList = document.documentElement.classList;
+      setIsDark(classList.contains("dark"));
+  
+      const observer = new MutationObserver(() => {
+        setIsDark(classList.contains("dark"));
+      });
+  
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+  
+      return () => observer.disconnect();
+    }, []);
+
   return (
     <div
-      className=" bg-cover bg-center p-4 md:p-6"
-      style={{
-        backgroundImage: "url('https://i.ibb.co/4ZG779SZ/paingting.jpg')",
-      }}
+      className={`bg-cover bg-center p-4 md:p-6 ${
+        isDark
+        ? "bg-gray-900"
+        : "bg-[url('https://i.ibb.co/4ZG779SZ/paingting.jpg')]"
+      }`}
     >
-      <div className="mt-24 w-full max-w-7xl mx-auto mb-20">
+      <div className="pt-24 w-full max-w-7xl mx-auto mb-20">
         <h2 data-aos="zoom-in" className="text-2xl md:text-4xl lg:text-5xl text-orange-500 font-bold text-center specific-text">
           ALL Groups
         </h2>
@@ -25,7 +44,7 @@ const AllGroups = () => {
 
         <div data-aos="fade-up" className="overflow-x-auto rounded-xl shadow-2xl">
           {groups.length ? (
-            <div  className="overflow-x-auto rounded-xl shadow-md">
+            <div  className="overflow-x-auto rounded-xl shadow-md dark:bg-gray-800">
               <table className="table w-full text-center md:text-left">
                 {/* head */}
                 <thead className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
@@ -42,28 +61,28 @@ const AllGroups = () => {
                 <tbody>
                   {groups.map((group, index) => (
                     <tr
-                      className="hover:bg-gray-100 transition-all duration-200"
+                      className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
                       key={group._id}
                     >
-                      <td className="text-xs md:text-sm lg:text-base font-semibold">
+                      <td className="text-xs md:text-sm lg:text-base font-semibold text-gray-600 dark:text-gray-400">
                         {index + 1}
                       </td>
                       <td>
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-1 md:gap-3">
                           <div>
-                            <div className="font-bold text-sm md:text-lg text-gray-500">
+                            <div className="font-bold text-sm md:text-lg text-gray-600 dark:text-gray-400">
                               {group.groupName}
                             </div>
-                            <div className="text-xs md:text-sm text-gray-500">
+                            <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                               {group.hobbyCategory}
                             </div>
                           </div>
                         </div>
                       </td>
-                      <td className="text-xs md:text-sm lg:text-base">
+                      <td className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">
                         {group.name}
                       </td>
-                      <td className="text-xs md:text-sm lg:text-base">
+                      <td className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">
                         {group.email}
                       </td>
                       <td>

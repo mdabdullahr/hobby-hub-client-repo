@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
@@ -27,6 +28,8 @@ const UpdateGroup = () => {
     email,
   } = useLoaderData();
 
+  const [isDark, setIsDark] = useState(false);
+
   const handleUpdateGroup = (e) => {
     e.preventDefault();
     const group = e.target;
@@ -54,18 +57,35 @@ const UpdateGroup = () => {
         }
       });
   };
+
+  useEffect(() => {
+          const classList = document.documentElement.classList;
+          setIsDark(classList.contains("dark"));
+      
+          const observer = new MutationObserver(() => {
+            setIsDark(classList.contains("dark"));
+          });
+      
+          observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+          });
+      
+          return () => observer.disconnect();
+        }, []);
   return (
     <div
-      className="min-h-screen bg-cover bg-center flex items-center justify-center"
-      style={{
-        backgroundImage: `url('https://i.ibb.co/qMQF3MBw/cartoon-group.jpg')`, // scenic bg
-      }}
+      className={`min-h-screen bg-cover bg-center flex items-center justify-center ${
+        isDark
+        ? "bg-[url('https://i.ibb.co/PvPbJjMy/businessman-hand-pointing-something-touching-touch-screen-black-background-copy-space-34683-2391.jpg')]"
+        : "bg-[url('https://i.ibb.co/qMQF3MBw/cartoon-group.jpg')]"
+      }`}
     >
-      <div className="mt-24 w-11/12 lg:w-10/12">
+      <div className="my-24 w-11/12 lg:w-10/12">
         <form
           data-aos="zoom-in"
           onSubmit={handleUpdateGroup}
-          className="max-w-6xl space-y-6 text-secondary shadow-2xl p-5 md:p-10 lg:p-16 rounded-2xl transition-transform duration-500 hover:scale-105"
+          className="max-w-6xl space-y-6 text-gray-600 dark:text-gray-400 shadow-2xl p-5 md:p-10 lg:p-16 rounded-2xl transition-transform duration-500 hover:scale-105 dark:bg-gray-900"
         >
           <h2 className="text-center mb-10 text-2xl md:text-4xl specific-text font-bold text-orange-500">
             Update Group
@@ -79,7 +99,7 @@ const UpdateGroup = () => {
                 name="groupName"
                 type="text"
                 defaultValue={groupName}
-                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
                 placeholder="Enter group name"
               />
             </div>
@@ -91,7 +111,7 @@ const UpdateGroup = () => {
                 id="hobbyCategory"
                 name="hobbyCategory"
                 defaultValue={hobbyCategory}
-                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
               >
                 {hobbyCategories.map((cat) => (
                   <option key={cat} value={cat}>
@@ -109,7 +129,7 @@ const UpdateGroup = () => {
                 name="meetingLocation"
                 type="text"
                 defaultValue={meetingLocation}
-                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
                 placeholder="Enter meeting location"
               />
             </div>
@@ -123,7 +143,7 @@ const UpdateGroup = () => {
                 type="number"
                 min="1"
                 defaultValue={maxMembers}
-                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
                 placeholder="Enter max members"
               />
             </div>
@@ -136,7 +156,7 @@ const UpdateGroup = () => {
                 name="startDate"
                 type="date"
                 defaultValue={startDate}
-                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
               />
             </div>
 
@@ -149,7 +169,7 @@ const UpdateGroup = () => {
                 name="imageUrl"
                 type="url"
                 placeholder="image URL"
-                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
               />
             </div>
 
@@ -161,7 +181,7 @@ const UpdateGroup = () => {
                 readOnly
                 name="name"
                 type="text"
-                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
               />
             </div>
 
@@ -173,7 +193,7 @@ const UpdateGroup = () => {
                 readOnly
                 name="email"
                 type="email"
-                className="w-full rounded-md p-2  bg-white  focus:outline-none"
+                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
               />
             </div>
           </div>
@@ -185,7 +205,7 @@ const UpdateGroup = () => {
               name="description"
               defaultValue={description}
               rows={4}
-              className="w-full rounded-md p-2  bg-white  focus:outline-none"
+              className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
               placeholder="Write a brief description"
             />
           </div>

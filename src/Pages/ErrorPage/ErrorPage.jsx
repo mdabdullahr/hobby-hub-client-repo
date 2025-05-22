@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import Navbar from "../../components/Navbar/Navbar";
 
 const ErrorPage = () => {
   return (
@@ -10,6 +11,7 @@ const ErrorPage = () => {
           "url('https://i.ibb.co/s9sYZRSm/free-photos-free-images-647d84-1024.jpg')",
       }}
     >
+        <Navbar></Navbar>
       <section
         className=" bg-transparent rounded-2xl shadow-md shadow-white px-8 py-12 mb-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center border-4 border-gray-400 "
       >

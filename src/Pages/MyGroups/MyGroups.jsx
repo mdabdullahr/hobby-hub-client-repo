@@ -8,6 +8,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const MyGroups = () => {
   const [myGroups, setMyGroups] = useState([]);
+  const [isDark, setIsDark] = useState(false);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -47,12 +48,29 @@ const MyGroups = () => {
       }
     });
   };
+
+  useEffect(() => {
+        const classList = document.documentElement.classList;
+        setIsDark(classList.contains("dark"));
+    
+        const observer = new MutationObserver(() => {
+          setIsDark(classList.contains("dark"));
+        });
+    
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+    
+        return () => observer.disconnect();
+      }, []);
   return (
     <div
-      className=" bg-cover bg-center p-4 md:p-6 "
-      style={{
-        backgroundImage: "url('https://i.ibb.co/4ZG779SZ/paingting.jpg')",
-      }}
+      className={`bg-cover bg-center p-4 md:p-6 ${
+        isDark
+        ? "bg-gray-900"
+        : "bg-[url('https://i.ibb.co/4ZG779SZ/paingting.jpg')]"
+      }`}
     >
       <div className="mt-24 w-full max-w-7xl mx-auto mb-20">
         <div data-aos="zoom-in">
@@ -72,7 +90,7 @@ const MyGroups = () => {
         </div>
         <div
           data-aos="fade-up"
-          className="overflow-x-auto rounded-xl shadow-2xl"
+          className="overflow-x-auto rounded-xl shadow-2xl dark:bg-gray-800"
         >
           {myGroups.length ? (
             <table className="table w-full text-center md:text-left">
@@ -91,28 +109,28 @@ const MyGroups = () => {
               <tbody>
                 {myGroups.map((group, index) => (
                   <tr
-                    className="hover:bg-gray-100 transition-all duration-200"
+                    className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
                     key={group._id}
                   >
-                    <td className="text-xs md:text-sm lg:text-base font-semibold">
+                    <td className="text-xs md:text-sm lg:text-base font-semibold text-gray-600 dark:text-gray-400">
                       {index + 1}
                     </td>
                     <td>
-                      <div className="flex flex-col md:flex-row items-start md:items-center gap-1 md:gap-3">
+                      <div className="flex flex-col md:flex-row items-start md:items-center gap-1 md:gap-3 ">
                         <div>
-                          <div className="font-bold text-sm md:text-lg text-gray-500">
+                          <div className="font-bold text-sm md:text-lg text-gray-500 dark:text-gray-400">
                             {group.groupName}
                           </div>
-                          <div className="text-xs md:text-sm text-gray-500">
+                          <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 ">
                             {group.hobbyCategory}
                           </div>
                         </div>
                       </div>
                     </td>
-                    <td className="text-xs md:text-sm lg:text-base">
+                    <td className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">
                       {group.name}
                     </td>
-                    <td className="text-xs md:text-sm lg:text-base">
+                    <td className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">
                       {group.email}
                     </td>
                     <td>

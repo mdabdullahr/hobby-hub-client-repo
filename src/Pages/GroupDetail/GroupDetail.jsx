@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdGroups } from "react-icons/md";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
@@ -23,10 +23,10 @@ const GroupDetail = () => {
   const { user } = useContext(AuthContext);
   const [isJoining, setIsJoining] = useState(false);
   const [currentMembers, setCurrentMembers] = useState(members);
+  const [isDark, setIsDark] = useState(false);
 
   const isAlreadyMember = user && currentMembers.includes(user.email);
 
-  // Start date চেক: যদি আজকের তারিখ startDate এর পরে হয়, গ্রুপ ইনঅ্যাকটিভ
   const now = new Date();
   const groupStartDate = new Date(startDate);
   const isGroupActive = groupStartDate >= now;
@@ -75,21 +75,39 @@ const GroupDetail = () => {
     }
   };
 
+   useEffect(() => {
+      const classList = document.documentElement.classList;
+      setIsDark(classList.contains("dark"));
+  
+      const observer = new MutationObserver(() => {
+        setIsDark(classList.contains("dark"));
+      });
+  
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+  
+      return () => observer.disconnect();
+    }, []);
+
+
   return (
     <div
-      className="min-h-screen bg-cover bg-center p-4 md:p-6"
-      style={{
-        backgroundImage: "url('https://i.ibb.co/yBXDgJkm/mugic.jpg')",
-      }}
+      className={`bg-cover bg-center p-4 md:p-6 ${
+        isDark
+        ? "bg-[url('https://i.ibb.co/PvCCp2vL/istockphoto-1294603953-612x612.jpg')]"
+        : "bg-[url('https://i.ibb.co/yBXDgJkm/mugic.jpg')]"
+      }`}
     >
-      <div className="mt-24 w-full max-w-7xl mx-auto">
-        <div className="overflow-x-auto backdrop-blur-3xl rounded-xl shadow-md">
+      <div className="my-24 w-full max-w-7xl mx-auto ">
+        <div className="overflow-x-auto backdrop-blur-3xl rounded-xl shadow-md shadow-gray-">
           <img
             className="w-full h-full md:h-[400px] bg-cover"
             src={imageUrl}
             alt="group"
           />
-          <div className="p-10 text-secondary space-y-5">
+          <div className="p-10 text-gray-800 dark:text-gray-400 space-y-5">
             <h2 className="text-2xl lg:text-4xl font-bold flex items-center gap-2">
               <MdGroups className="border rounded-full" /> {groupName}
             </h2>

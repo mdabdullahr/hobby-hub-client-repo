@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import DarkMoodToggoler from "../DarkMoodToggoler/DarkMoodToggoler";
 
 const links = (
   <>
@@ -68,15 +69,17 @@ const Navbar = () => {
             </ul>
           </div>
           <MdGroups className="rounded-full border mr-2 bg-orange-500" size={30} color="#Ffffff" />
-          <a className="text-2xl md:text-3xl lg:text-4xl specific-text font-bold">
-            <span className="text-orange-600">Hobby</span>
-            <span className="text-orange-600">Hub</span>
-          </a>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl specific-text font-bold text-orange-500 hidden md:block">
+            HobbyHub
+          </h3>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-2 md:gap-5">
+          <div>
+            <DarkMoodToggoler></DarkMoodToggoler>
+          </div>
           {user && (
             <div className="relative group">
               <img
@@ -94,7 +97,7 @@ const Navbar = () => {
             <button
               onClick={handleLogOut}
               data-aos="zoom-in"
-              className="text-white specific-text text-2xl bg-orange-500 font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 cursor-pointer"
+              className="text-white specific-text text-sm md:text-2xl bg-orange-500 font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 cursor-pointer"
             >
               LogOut
             </button>
@@ -102,7 +105,7 @@ const Navbar = () => {
             <Link
               to="/login"
               data-aos="zoom-in"
-              className="text-white bg-orange-500 text-2xl specific-text font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105"
+              className="text-white bg-orange-500 text-sm md:text-2xl specific-text font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105"
             >
               Login
             </Link>

@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import { MdPhone, MdEmail, MdLocationOn } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const Footer = () => {
   const [isDark, setIsDark] = useState(false);
@@ -25,6 +26,12 @@ const Footer = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const handleContactUs = (e) => {
+    e.preventDefault();
+    toast.success("Thanks for contacting us..!")
+    e.target.reset();
+  }
 
   return (
     <div
@@ -118,26 +125,29 @@ const Footer = () => {
           <h3 className={`text-lg md:text-3xl font-semibold mt-0 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             Connect with Us
           </h3>
-          <div className="flex flex-col space-y-4 mt-6">
+          <form onSubmit={handleContactUs} className="flex flex-col space-y-4 mt-6">
             <input
               className="bg-white dark:bg-gray-900 border text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-600 h-12 px-4 rounded-md focus:outline-none"
               type="text"
+              required
               placeholder="Name"
             />
             <input
               className="bg-white dark:bg-gray-900 border text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-600 h-12 px-4 rounded-md focus:outline-none"
               type="email"
+              required
               placeholder="Email"
             />
             <textarea
               rows="5"
+              required
               className="w-full p-4 rounded-md text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 focus:outline-none"
               placeholder="Write your message..."
             ></textarea>
-            <button className="text-orange-500 border-2 border-orange-500 py-2 rounded-full hover:bg-orange-500 hover:text-white transition duration-300">
+            <button type="submit" className="text-orange-500 border-2 border-orange-500 py-2 rounded-full hover:bg-orange-500 hover:text-white transition duration-300">
               Send Message
             </button>
-          </div>
+          </form>
         </div>
       </div>
 

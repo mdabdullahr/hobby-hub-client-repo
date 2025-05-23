@@ -73,6 +73,10 @@ const UpdateGroup = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    document.title = `HobbyHub | Update-Group-${_id}`;
+  }, [_id]);
   return (
     <div
       className={`min-h-screen bg-cover bg-center flex items-center justify-center ${

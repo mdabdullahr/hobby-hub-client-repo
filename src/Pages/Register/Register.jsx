@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FaEnvelope, FaLock, FaUser, FaPhotoVideo } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -54,6 +54,10 @@ const Register = () => {
         toast.error("Register fail" + errorMessage);
       });
   };
+
+  useEffect(() => {
+    document.title = "HobbyHub | Register";
+  }, []);
   return (
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
 import { Typewriter } from "react-simple-typewriter";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Banner = () => {
+  const {user} = useContext(AuthContext);
   return (
     <div
       className="relative min-h-screen bg-cover bg-center flex items-center justify-center text-center px-4"
@@ -44,7 +46,7 @@ const Banner = () => {
           you love.
         </p>
         <Link
-          to="/login"
+          to={user ? "/createGroup" : "/login"}
           className="px-5 py-2 rounded bg-orange-500 hover:bg-orange-600 text-white  font-medium text-lg md:text-xl lg:text-2xl"
         >
           Get Started

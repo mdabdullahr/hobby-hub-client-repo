@@ -91,6 +91,10 @@ const GroupDetail = () => {
       return () => observer.disconnect();
     }, []);
 
+    useEffect(() => {
+    document.title = `HobbyHub | Group-Detail-${_id}`;
+  }, [_id]);
+
 
   return (
     <div

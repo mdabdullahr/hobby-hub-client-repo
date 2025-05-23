@@ -22,6 +22,10 @@ const AllGroups = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    document.title = "HobbyHub | All-Groups";
+  }, []);
+
   return (
     <div
       className={`bg-cover bg-center p-4 md:p-6 ${

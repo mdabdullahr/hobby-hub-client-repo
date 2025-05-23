@@ -100,15 +100,15 @@ const Footer = () => {
           <div className={`space-y-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             <div className="flex items-center gap-3">
               <MdPhone className={`text-sm md:text-lg lg:text-2xl ${isDark ? "text-gray-400" : "text-gray-600"}`} />
-              <span>+880 1234-567890</span>
+              <span className="text-sm md:text-lg">+880 1234-567890</span>
             </div>
             <div className="flex items-center gap-3">
               <MdEmail className={`text-sm md:text-lg lg:text-2xl ${isDark ? "text-gray-400" : "text-gray-600"}`} />
-              <span>example@gmail.com</span>
+              <span className="text-sm md:text-lg">hobbyhub@gmail.com</span>
             </div>
             <div className="flex items-center gap-3">
               <MdLocationOn className={`text-sm md:text-lg lg:text-2xl ${isDark ? "text-gray-400" : "text-gray-600"}`} />
-              <span>Dhaka, Bangladesh</span>
+              <span className="text-sm md:text-lg">Dhaka, Bangladesh</span>
             </div>
           </div>
         </div>

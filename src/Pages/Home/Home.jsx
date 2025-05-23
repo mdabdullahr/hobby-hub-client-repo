@@ -4,6 +4,7 @@ import OngoingGroupCard from "../../components/OngoingGroupCard/OngoingGroupCard
 import { FaUserFriends, FaPlusCircle, FaHandshake } from "react-icons/fa";
 import communityImage from "../../assets/Animation/mitup.json"
 import Lottie from "lottie-react";
+import { useEffect } from "react";
 
 const Home = () => {
   const data = useLoaderData();
@@ -20,6 +21,10 @@ const Home = () => {
   });
 
   const featuredGroup = ongoingGroups.slice(0, 6);
+
+  useEffect(() => {
+    document.title = "HobbyHub | Home";
+  }, []);
 
   return (
     <div className="mb-10">

@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -44,6 +44,10 @@ const Login = () => {
       toast.error("Google Login fail " + err.message)
     })
   };
+
+  useEffect(() => {
+    document.title = "HobbyHub | Login";
+  }, []);
 
   return (
     <div

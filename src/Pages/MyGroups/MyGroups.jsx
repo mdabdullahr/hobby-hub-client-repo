@@ -6,7 +6,7 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { Typewriter } from "react-simple-typewriter";
 import { AuthContext } from "../../Provider/AuthProvider";
-import noDataFound from "../../assets/Animation/nodatafound.json"
+import noDataFound from "../../assets/Animation/nodatafound.json";
 import Lottie from "lottie-react";
 
 const MyGroups = () => {
@@ -165,48 +165,46 @@ const MyGroups = () => {
               </tbody>
             </table>
           ) : (
-
             <div>
               <div className="flex justify-center items-center dark:bg-gray-900">
-               <Lottie
-                animationData={noDataFound}
-                loop
-                autoplay
-                style={{ height: 500, width: 500 }}
-              />
-             </div>
-            <div
-              data-aos="fade-up"
-              className="p-10 lg:p-20 space-y-5 dark:bg-gray-800"
-            >  
-              <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-red-400">
-                Oops...!
-              </h2>
-              {/* Typewriter */}
-              <p className="text-center font-semibold text-lg lg:text-2xl text-gray-600 dark:text-gray-400">
-                <Typewriter
-                  words={[
-                    "Right now your no group Available here...!",
-                    "Try another interest!",
-                    "Or create your own group!",
-                  ]}
-                  loop={true}
-                  cursor
-                  cursorStyle="|"
-                  typeSpeed={70}
-                  deleteSpeed={50}
-                  delaySpeed={1500}
+                <Lottie
+                  animationData={noDataFound}
+                  loop
+                  autoplay
+                  className="w-[500px] h-[500px]"
                 />
-              </p>
-              <Link
-                className="text-white bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded mt-2 flex justify-center items-center font-semibold"
-                to="/createGroup"
+              </div>
+              <div
+                data-aos="fade-up"
+                className="p-10 lg:p-20 space-y-5 dark:bg-gray-800"
               >
-                Create Group
-              </Link>
+                <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-red-400">
+                  Oops...!
+                </h2>
+                {/* Typewriter */}
+                <p className="text-center font-semibold text-lg lg:text-2xl text-gray-600 dark:text-gray-400">
+                  <Typewriter
+                    words={[
+                      "Right now your no group Available here...!",
+                      "Try another interest!",
+                      "Or create your own group!",
+                    ]}
+                    loop={true}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1500}
+                  />
+                </p>
+                <Link
+                  className="text-white bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded mt-2 flex justify-center items-center font-semibold"
+                  to="/createGroup"
+                >
+                  Create Group
+                </Link>
+              </div>
             </div>
-            </div>
-            
           )}
         </div>
       </div>

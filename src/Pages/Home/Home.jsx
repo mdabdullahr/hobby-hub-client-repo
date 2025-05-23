@@ -2,7 +2,8 @@ import { Link, useLoaderData } from "react-router";
 import Banner from "../../components/Banner/Banner.jsx";
 import OngoingGroupCard from "../../components/OngoingGroupCard/OngoingGroupCard.jsx";
 import { FaUserFriends, FaPlusCircle, FaHandshake } from "react-icons/fa";
-import communityImage from "../../assets/Animation/mitup.json"
+import communityImage from "../../assets/Animation/mitup.json";
+import noDataFound from "../../assets/Animation/nodatafound.json"
 import Lottie from "lottie-react";
 import { useEffect } from "react";
 
@@ -45,8 +46,17 @@ const Home = () => {
           </p>
 
           {ongoingGroups.length === 0 ? (
-            <div className="flex justify-center items-center mt-10 lg:mt-20">
-              <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 md:p-10 lg:p-16 text-center max-w-5xl w-full">
+            <div className="flex flex-col justify-center items-center mt-10 lg:mt-20">
+              <div className="flex justify-center items-center dark:bg-gray-900">
+                <Lottie
+                  animationData={noDataFound}
+                  loop
+                  autoplay
+                  className="w-[500px] h-[500px]"
+                />
+              </div>
+              <div className="bg-white dark:bg-transparent shadow-lg dark:shadow-none rounded-xl p-6 md:p-10 lg:p-16 text-center max-w-5xl w-full">
+                 
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-white mb-3">
                   No Ongoing Groups Found
                 </h3>
@@ -75,7 +85,10 @@ const Home = () => {
           data-aos="fade-up"
           className="max-w-7xl mx-auto  rounded-2xl  px-8  py-12 mb-10 flex flex-col md:flex-row items-center justify-between gap-8"
         >
-          <div data-aos="fade-left" className="md:w-1/2 text-center md:text-left">
+          <div
+            data-aos="fade-left"
+            className="md:w-1/2 text-center md:text-left"
+          >
             <h2 className="text-2xl md:text-4xl font-bold text-gray-600 dark:text-white mb-4">
               Turn Hobbies Into Real Friendships
             </h2>
@@ -99,13 +112,13 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="rounded">
+          <div className="w-[300px] md:w-[400px]">
             <Lottie
-                animationData={communityImage}
-                loop
-                autoplay
-                style={{ height: 400, width: 400 }}
-              />
+              animationData={communityImage}
+              loop
+              autoplay
+              className="w-full h-auto"
+            />
           </div>
         </section>
 

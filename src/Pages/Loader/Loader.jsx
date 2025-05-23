@@ -3,12 +3,12 @@ import loadingAnimation from "../../assets/Animation/spiner.json"; // adjust pat
 
 const Loader = () => {
   return (
-     <div className="min-h-screen flex justify-center items-center bg-white dark:bg-gray-900">
+    <div className="min-h-screen flex justify-center items-center bg-white dark:bg-gray-900">
       <Lottie
         animationData={loadingAnimation}
         loop
         autoplay
-        style={{ height: 200, width: 200 }}
+        className="w-[200px] h-[200px]"
       />
     </div>
   );

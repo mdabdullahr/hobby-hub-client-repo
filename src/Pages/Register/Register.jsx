@@ -62,7 +62,7 @@ const Register = () => {
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
       style={{
-        backgroundImage: `url('https://i.ibb.co/Y495bg1M/img-122.jpg')`, // scenic bg
+        backgroundImage: `url('https://i.ibb.co/1JGGL08S/istockphoto-483629308-612x612.jpg')`, // scenic bg
       }}
     >
       <div

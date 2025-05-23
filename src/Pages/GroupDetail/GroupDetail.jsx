@@ -3,6 +3,8 @@ import { MdGroups } from "react-icons/md";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import details from "../../assets/Animation/details.json"
+import Lottie from "lottie-react";
 
 const GroupDetail = () => {
   const detail = useLoaderData();
@@ -75,6 +77,7 @@ const GroupDetail = () => {
     }
   };
 
+
    useEffect(() => {
       const classList = document.documentElement.classList;
       setIsDark(classList.contains("dark"));
@@ -112,32 +115,46 @@ const GroupDetail = () => {
             alt="group"
           />
           <div data-aos="fade-left" className="p-10 text-gray-800 dark:text-gray-400 space-y-5">
-            <h2 className="text-2xl lg:text-4xl font-bold flex items-center gap-2">
-              <MdGroups className="border rounded-full" /> {groupName}
+              
+              <h2 className="text-2xl lg:text-4xl font-bold flex items-center gap-2 text-orange-500">
+              <MdGroups className="border border-orange-500 rounded-full"></MdGroups> {groupName}
             </h2>
+            <div className="flex sm:flex-col md:flex-row sm:justify-around items-center">
+              <div className=" justify-center items-center hidden md:block">
+                <Lottie
+                  animationData={details}
+                  loop
+                  autoplay
+                  className="md:w-[300px] md:h-[300px] lg:w-[500px] lg:h-[500px]"
+                />
+              </div>
+              <div className="space-y-4">
+              
             <h5 className="txt-lg lg:text-2xl">
-              <strong>Category:</strong> {hobbyCategory}
+              <strong>Category :</strong> {hobbyCategory}
             </h5>
             <p className="text-sm lg:text-xl">
-              <strong>Meeting Location:</strong> {meetingLocation}
+              <strong>Meeting Location :</strong> {meetingLocation}
             </p>
             <p className="text-sm lg:text-xl">
-              <strong>Maximum Members:</strong> {maxMembers}
+              <strong>Maximum Members :</strong> {maxMembers}
             </p>
             <p className="text-sm lg:text-xl">
-              <strong>Start Date:</strong> {startDate}
+              <strong>Start Date :</strong> {startDate}
             </p>
             <p className="text-sm lg:text-xl">
-              <strong>Created By:</strong> {name}
+              <strong>Created By :</strong> {name}
             </p>
             <p className="text-sm lg:text-xl">
-              <strong>Admin Email:</strong> {email}
+              <strong>Admin Email :</strong> {email}
             </p>
+            </div>
+
+            </div>
             <p className="text-sm lg:text-xl">
-              <strong>Description:</strong> {description}
+              <strong className="underline">Description :</strong> {description}
             </p>
 
-            {/* যদি গ্রুপ start date পাস হয়ে যায়, তখন বাটনের জায়গায় মেসেজ দেখাবে */}
             {!isGroupActive ? (
               <p className="text-center text-red-600 font-semibold text-lg">
                 This group is no longer active.
@@ -153,7 +170,7 @@ const GroupDetail = () => {
                 className={`w-full cursor-pointer border-4 border-white shadow text-xl py-3 rounded-md specific-text transition-transform duration-500 ${
                   isAlreadyMember || currentMembers.length >= Number(maxMembers)
                     ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                    : "bg-transparent hover:bg-orange-600 hover:text-white text-orange-600"
+                    : "bg-orange-500 text-white hover:bg-orange-600"
                 }`}
                 title={
                   isAlreadyMember

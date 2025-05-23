@@ -52,7 +52,7 @@ const Home = () => {
                   animationData={noDataFound}
                   loop
                   autoplay
-                  className="w-[500px] h-[500px]"
+                  className="w-[300px] h-[300px] lg:w-[500px] lg:h-[500px]"
                 />
               </div>
               <div className="bg-white dark:bg-transparent shadow-lg dark:shadow-none rounded-xl p-6 md:p-10 lg:p-16 text-center max-w-5xl w-full">

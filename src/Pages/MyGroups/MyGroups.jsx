@@ -4,6 +4,7 @@ import { FaPen } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const MyGroups = () => {
@@ -50,26 +51,26 @@ const MyGroups = () => {
   };
 
   useEffect(() => {
-        const classList = document.documentElement.classList;
-        setIsDark(classList.contains("dark"));
-    
-        const observer = new MutationObserver(() => {
-          setIsDark(classList.contains("dark"));
-        });
-    
-        observer.observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ["class"],
-        });
-    
-        return () => observer.disconnect();
-      }, []);
+    const classList = document.documentElement.classList;
+    setIsDark(classList.contains("dark"));
+
+    const observer = new MutationObserver(() => {
+      setIsDark(classList.contains("dark"));
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <div
       className={`bg-cover bg-center p-4 md:p-6 ${
         isDark
-        ? "bg-gray-900"
-        : "bg-[url('https://i.ibb.co/4ZG779SZ/paingting.jpg')]"
+          ? "bg-gray-900"
+          : "bg-[url('https://i.ibb.co/4ZG779SZ/paingting.jpg')]"
       }`}
     >
       <div className="mt-24 w-full max-w-7xl mx-auto mb-20">
@@ -158,12 +159,28 @@ const MyGroups = () => {
               </tbody>
             </table>
           ) : (
-            <div className="p-10 lg:p-20 space-y-5">
+            <div
+              data-aos="fade-up"
+              className="p-10 lg:p-20 space-y-5 dark:bg-gray-800"
+            >
               <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-red-400">
                 Oops...!
               </h2>
-              <p className="text-center font-semibold text-lg lg:text-2xl">
-                Right now your no group available here, please...
+              {/* Typewriter */}
+              <p className="text-center font-semibold text-lg lg:text-2xl text-gray-600 dark:text-gray-400">
+                <Typewriter
+                  words={[
+                    "Right now your no group Available here...!",
+                    'Try another interest!', 
+                    'Or create your own group!'
+                  ]}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1500}
+                />
               </p>
               <Link
                 className="text-white bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded mt-2 flex justify-center items-center font-semibold"

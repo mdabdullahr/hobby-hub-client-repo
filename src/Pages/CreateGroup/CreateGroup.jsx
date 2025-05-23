@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 const hobbyCategories = [
   "Drawing & Painting",
@@ -46,35 +47,51 @@ const CreateGroup = () => {
   };
 
   useEffect(() => {
-        const classList = document.documentElement.classList;
-        setIsDark(classList.contains("dark"));
-    
-        const observer = new MutationObserver(() => {
-          setIsDark(classList.contains("dark"));
-        });
-    
-        observer.observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ["class"],
-        });
-    
-        return () => observer.disconnect();
-      }, []);
+    const classList = document.documentElement.classList;
+    setIsDark(classList.contains("dark"));
+
+    const observer = new MutationObserver(() => {
+      setIsDark(classList.contains("dark"));
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <div
       className={`min-h-screen bg-cover bg-center flex items-center justify-center ${
         isDark
-        ? "bg-[url('https://i.ibb.co/PvPbJjMy/businessman-hand-pointing-something-touching-touch-screen-black-background-copy-space-34683-2391.jpg')]"
-        : "bg-[url('https://i.ibb.co/qMQF3MBw/cartoon-group.jpg')]"
+          ? "bg-[url('https://i.ibb.co/PvPbJjMy/businessman-hand-pointing-something-touching-touch-screen-black-background-copy-space-34683-2391.jpg')]"
+          : "bg-[url('https://i.ibb.co/qMQF3MBw/cartoon-group.jpg')]"
       }`}
     >
-      
       <div className="my-24 w-11/12 lg:w-10/12">
         <form
           data-aos="zoom-in"
           onSubmit={handleCreateGroup}
           className="max-w-6xl space-y-6 text-gray-600 dark:text-gray-400 shadow-2xl p-5 md:p-10 lg:p-16 transition-transform duration-500 hover:scale-105 rounded-2xl dark:bg-gray-900"
         >
+          {/* Add typewriter */}
+          <p className="text-center text-lg md:text-xl text-gray-600 dark:text-gray-400 font-medium mb-2">
+            <Typewriter
+              words={[
+                "Your passion, your group",
+                "Start something new",
+                "Create a community",
+              ]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
+          </p>
+
           <h2 className="text-center mb-10 text-2xl md:text-4xl specific-text font-bold text-orange-500">
             Create Group
           </h2>

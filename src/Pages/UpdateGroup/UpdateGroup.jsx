@@ -49,7 +49,7 @@ const UpdateGroup = () => {
         if (data.modifiedCount) {
           console.log("data after db", data);
           Swal.fire({
-            title: "Coffee Update Successfully!",
+            title: "Group Update Successfully!",
             icon: "success",
             draggable: true,
           });
@@ -59,26 +59,26 @@ const UpdateGroup = () => {
   };
 
   useEffect(() => {
-          const classList = document.documentElement.classList;
-          setIsDark(classList.contains("dark"));
-      
-          const observer = new MutationObserver(() => {
-            setIsDark(classList.contains("dark"));
-          });
-      
-          observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ["class"],
-          });
-      
-          return () => observer.disconnect();
-        }, []);
+    const classList = document.documentElement.classList;
+    setIsDark(classList.contains("dark"));
+
+    const observer = new MutationObserver(() => {
+      setIsDark(classList.contains("dark"));
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <div
       className={`min-h-screen bg-cover bg-center flex items-center justify-center ${
         isDark
-        ? "bg-[url('https://i.ibb.co/PvPbJjMy/businessman-hand-pointing-something-touching-touch-screen-black-background-copy-space-34683-2391.jpg')]"
-        : "bg-[url('https://i.ibb.co/qMQF3MBw/cartoon-group.jpg')]"
+          ? "bg-[url('https://i.ibb.co/PvPbJjMy/businessman-hand-pointing-something-touching-touch-screen-black-background-copy-space-34683-2391.jpg')]"
+          : "bg-[url('https://i.ibb.co/qMQF3MBw/cartoon-group.jpg')]"
       }`}
     >
       <div className="my-24 w-11/12 lg:w-10/12">

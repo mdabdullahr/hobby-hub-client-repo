@@ -100,14 +100,14 @@ const GroupDetail = () => {
         : "bg-[url('https://i.ibb.co/yBXDgJkm/mugic.jpg')]"
       }`}
     >
-      <div className="my-24 w-full max-w-7xl mx-auto ">
+      <div data-aos="fade-up" className="my-24 w-full max-w-7xl mx-auto ">
         <div className="overflow-x-auto backdrop-blur-3xl rounded-xl shadow-md shadow-gray-">
           <img
             className="w-full h-full md:h-[400px] bg-cover"
             src={imageUrl}
             alt="group"
           />
-          <div className="p-10 text-gray-800 dark:text-gray-400 space-y-5">
+          <div data-aos="fade-left" className="p-10 text-gray-800 dark:text-gray-400 space-y-5">
             <h2 className="text-2xl lg:text-4xl font-bold flex items-center gap-2">
               <MdGroups className="border rounded-full" /> {groupName}
             </h2>

@@ -9,7 +9,7 @@ const DarkMoodToggoler = () => {
         <button
         onClick={() => setDarkMode(!darkMode)}
         >
-           {darkMode ? <MdSunny size={30} className='cursor-pointer'/> : <FaMoon size={30} className='text-gray-900 cursor-pointer'/>}
+           {darkMode ? <MdSunny size={25}  className='cursor-pointer'/> : <FaMoon size={25} className='text-gray-900 cursor-pointer'/>}
         </button>
     );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
   return (
@@ -12,15 +13,42 @@ const Banner = () => {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-60 z-0"></div>
       <div data-aos="fade-up" className="relative z-10">
+
+         {/* Typewriter effect */}
+        <h2 className="text-lg md:text-2xl lg:text-3xl text-white font-semibold mb-6">
+          <Typewriter
+            words={[
+              "Welcome to our HobbyHub community..!",
+              "Join a Book Club",
+              "Explore Hiking Crews",
+              "Create with Artists",
+              "Join. Create. Connect.",
+            ]}
+            loop={true}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </h2>
+
+
         <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white mb-4 specific-text">
           Connect Through Hobbies
         </h1>
+       
         <p className="text-white font-medium text-sm md:text-lg lg:text-xl max-w-3xl mx-auto mt-3 md:mt-4 mb-6">
           Discover and join local hobby groups or create your own. Whether it's
           books, hikes, art, or more — build meaningful connections around what
           you love.
         </p>
-        <Link to="/login" className="px-5 py-2 rounded bg-orange-500 hover:bg-orange-600 text-white  font-medium text-lg md:text-xl lg:text-2xl">Get Started</Link>
+        <Link
+          to="/login"
+          className="px-5 py-2 rounded bg-orange-500 hover:bg-orange-600 text-white  font-medium text-lg md:text-xl lg:text-2xl"
+        >
+          Get Started
+        </Link>
       </div>
     </div>
   );

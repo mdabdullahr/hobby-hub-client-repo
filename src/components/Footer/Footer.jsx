@@ -94,20 +94,20 @@ const Footer = () => {
             </a>
           </div>
 
-          <h3 className={`text-xl md:text-3xl font-semibold mt-8 mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <h3 className={`text-lg md:text-3xl font-semibold mt-8 mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             Get in Touch
           </h3>
           <div className={`space-y-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             <div className="flex items-center gap-3">
-              <MdPhone className={`text-2xl ${isDark ? "text-gray-400" : "text-gray-600"}`} />
+              <MdPhone className={`text-sm md:text-lg lg:text-2xl ${isDark ? "text-gray-400" : "text-gray-600"}`} />
               <span>+880 1234-567890</span>
             </div>
             <div className="flex items-center gap-3">
-              <MdEmail className={`text-2xl ${isDark ? "text-gray-400" : "text-gray-600"}`} />
+              <MdEmail className={`text-sm md:text-lg lg:text-2xl ${isDark ? "text-gray-400" : "text-gray-600"}`} />
               <span>example@gmail.com</span>
             </div>
             <div className="flex items-center gap-3">
-              <MdLocationOn className={`text-2xl ${isDark ? "text-gray-400" : "text-gray-600"}`} />
+              <MdLocationOn className={`text-sm md:text-lg lg:text-2xl ${isDark ? "text-gray-400" : "text-gray-600"}`} />
               <span>Dhaka, Bangladesh</span>
             </div>
           </div>
@@ -115,7 +115,7 @@ const Footer = () => {
 
         {/* Right Section */}
         <div>
-          <h3 className={`text-3xl font-semibold mt-0 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <h3 className={`text-lg md:text-3xl font-semibold mt-0 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             Connect with Us
           </h3>
           <div className="flex flex-col space-y-4 mt-6">

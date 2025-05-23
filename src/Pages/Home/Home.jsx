@@ -2,6 +2,8 @@ import { Link, useLoaderData } from "react-router";
 import Banner from "../../components/Banner/Banner.jsx";
 import OngoingGroupCard from "../../components/OngoingGroupCard/OngoingGroupCard.jsx";
 import { FaUserFriends, FaPlusCircle, FaHandshake } from "react-icons/fa";
+import communityImage from "../../assets/Animation/mitup.json"
+import Lottie from "lottie-react";
 
 const Home = () => {
   const data = useLoaderData();
@@ -23,7 +25,7 @@ const Home = () => {
     <div className="mb-10">
       <Banner />
 
-      <section className="w-11/12 lg:w-10/12 mx-auto">
+      <section className="w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto">
         <section data-aos="fade-up" className="my-10 lg:my-20">
           <h2 className="text-2xl text-orange-500 md:text-4xl lg:text-5xl specific-text text-center font-bold">
             Featured Groups
@@ -56,7 +58,7 @@ const Home = () => {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10 lg:my-20">
+            <div className="grid grid-cols-1  lg:grid-cols-2 gap-6 my-10 lg:my-20">
               {featuredGroup.map((group) => (
                 <OngoingGroupCard key={group._id} group={group} />
               ))}
@@ -66,9 +68,9 @@ const Home = () => {
 
         <section
           data-aos="fade-up"
-          className="max-w-7xl mx-auto bg-gradient-to-br from-orange-100 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-md px-8 py-12 mb-10 flex flex-col md:flex-row items-center justify-between gap-8"
+          className="max-w-7xl mx-auto  rounded-2xl  px-8  py-12 mb-10 flex flex-col md:flex-row items-center justify-between gap-8"
         >
-          <div className="md:w-1/2 text-center md:text-left">
+          <div data-aos="fade-left" className="md:w-1/2 text-center md:text-left">
             <h2 className="text-2xl md:text-4xl font-bold text-gray-600 dark:text-white mb-4">
               Turn Hobbies Into Real Friendships
             </h2>
@@ -92,12 +94,13 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="md:w-1/2">
-            <img
-              src="https://i.ibb.co/DDRQyQ1N/grouping-removebg-preview.png"
-              alt="Connect Through Hobbies"
-              className="w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] mx-auto rounded-2xl"
-            />
+          <div className="rounded">
+            <Lottie
+                animationData={communityImage}
+                loop
+                autoplay
+                style={{ height: 400, width: 400 }}
+              />
           </div>
         </section>
 

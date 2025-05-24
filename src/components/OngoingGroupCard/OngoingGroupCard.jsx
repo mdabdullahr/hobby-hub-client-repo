@@ -19,7 +19,7 @@ const OngoingGroupCard = ({ group }) => {
   return (
     <div
       data-aos="fade-up"
-      className="bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition duration-300 p-4 md:p-6 flex flex-wrap flex-col md:flex-row items-center md:items-start gap-4 md:gap-6"
+      className="bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition duration-300 p-4 md:p-6 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6"
     >
       {/* Left side: Image */}
       {imageUrl && (

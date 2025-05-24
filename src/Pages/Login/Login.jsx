@@ -1,5 +1,7 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { ImEye } from 'react-icons/im';
+import { RiEyeCloseFill } from 'react-icons/ri';
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -7,6 +9,7 @@ import { toast } from "react-toastify";
 
 const Login = () => {
   const { loginUser, googleLogin } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const emailRef = useRef();
@@ -89,13 +92,22 @@ const Login = () => {
               <span className="absolute left-3 top-3 text-white opacity-70">
                 <FaLock />
               </span>
-              <input
+              <div className="relative">
+                <input
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 className="w-full pl-10 pr-4 py-2 rounded-md border bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 placeholder="Enter your password"
                 required
               />
+              <button
+          onClick={()=>setShowPassword(!showPassword)}
+          className='text-white absolute top-4 right-3 cursor-pointer'>
+         {
+          showPassword ? <RiEyeCloseFill /> : <ImEye size={15}/>
+         }
+         </button>
+              </div>
             </div>
           </div>
 

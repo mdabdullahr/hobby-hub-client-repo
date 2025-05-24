@@ -97,7 +97,7 @@ const Navbar = () => {
             <button
               onClick={handleLogOut}
               data-aos="zoom-in"
-              className="text-white specific-text text-sm md:text-2xl bg-orange-500 font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 cursor-pointer"
+              className="text-white specific-text text-sm md:text-2xl bg-orange-500 font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 cursor-pointer whitespace-nowrap"
             >
               LogOut
             </button>
@@ -105,7 +105,7 @@ const Navbar = () => {
             <Link
               to="/login"
               data-aos="zoom-in"
-              className="text-white bg-orange-500 text-sm md:text-2xl specific-text font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105"
+              className="text-white bg-orange-500 text-sm md:text-2xl specific-text font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 whitespace-nowrap"
             >
               Login
             </Link>

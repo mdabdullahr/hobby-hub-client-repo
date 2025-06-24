@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
-import DarkMoodToggoler from "../DarkMoodToggoler/DarkMoodToggoler";
+import DarkMoodToggoler from "../DarkMoodToggoler/DarkMoodToggoler.jsx";
 
 const links = (
   <>
@@ -41,7 +41,7 @@ const Navbar = () => {
   };
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-transparent bg-opacity-50 backdrop-blur-md">
-      <div className="navbar w-11/12 mx-auto py-3">
+      <div className="navbar w-11/12 mx-auto py-3 overflow-hidden">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className=" mr-5 lg:hidden text-black dark:text-white">

@@ -1,6 +1,6 @@
 # 🎯 HobbyHub – Local Hobby Group Organizer
 
-**🔗 Live Site:** [https://your-live-site-url.web.app](https://your-live-site-url.web.app)
+**🔗 Live Site:** [https://hobby-hub-auth.web.app/](https://hobby-hub-auth.web.app/)
 
 HobbyHub is a full-stack web application that allows users to discover, create, and join local hobby groups based on shared interests like arts, sports, tech, and more. Built using React, Firebase, and TailwindCSS, it offers role-based access, protected routes, and a smooth, modern UI.
 

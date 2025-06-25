@@ -57,19 +57,16 @@ HobbyHub is a full-stack web application that allows users to discover, create, 
 bash <br/>
 git clone https://github.com/mdabdullahr/hobby-hub-client-repo.git
 
-2. Navigate to the Project Directory
+### 2. Navigate to the Project Directory
 bash <br/>
-
 cd hobby-hub-client-repo
 
-3. Install Dependencies
+### 3. Install Dependencies
 bash <br/>
-
 npm install
 
-4. Create a .env File and Add Firebase Config <br/>
+### 4. Create a .env File and Add Firebase Config <br/>
 env <br/>
-
 VITE_API_KEY=your_api_key <br/>
 VITE_AUTH_DOMAIN=your_auth_domain <br/>
 VITE_PROJECT_ID=your_project_id <br/>
@@ -77,18 +74,17 @@ VITE_STORAGE_BUCKET=your_storage_bucket <br/>
 VITE_MESSAGING_SENDER_ID=your_sender_id <br/>
 VITE_APP_ID=your_app_id
 
-5. Start the Development Server
+### 5. Start the Development Server
 bash <br/>
-
 npm run dev
 
-6. Open in Browser
+### 6. Open in Browser
 http://localhost:5173
 
-👨‍💻 Author
+### 👨‍💻 Author
 Abdullah <br/>
 GitHub: @mdabdullahr <br/>
 Email: mdabdullah162005@gmail.com
 
-📜 License
+### 📜 License
 This project is licensed under the MIT License.

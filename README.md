@@ -67,7 +67,7 @@ bash <br/>
 
 npm install
 
-4. Create a .env File and Add Firebase Config
+4. Create a .env File and Add Firebase Config <br/>
 env <br/>
 
 VITE_API_KEY=your_api_key <br/>

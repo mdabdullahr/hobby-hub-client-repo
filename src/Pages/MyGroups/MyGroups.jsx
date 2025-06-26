@@ -14,7 +14,7 @@ const MyGroups = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/groups?emailParams=${user?.email}`)
+    fetch(`http://localhost:3000/my-groups?emailParams=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyGroups(data));
   }, [user?.email]);
@@ -119,7 +119,7 @@ const MyGroups = () => {
                           <BsFillInfoCircleFill size={20} color=" #17a2b8" />
                         </button>
                       </Link>
-                      <Link to={`/updateGroup/${group._id}`}>
+                      <Link to={`/dashboard/updateGroup/${group._id}`}>
                         <button className="cursor-pointer rounded bg-transparent shadow shadow-gray-300 p-[10px]">
                           <FaPen size={20} color="#b182e3" />
                         </button>

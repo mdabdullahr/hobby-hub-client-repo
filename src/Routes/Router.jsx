@@ -11,6 +11,8 @@ import MyGroups from "../Pages/MyGroups/MyGroups";
 import Register from "../Pages/Register/Register";
 import UpdateGroup from "../Pages/UpdateGroup/UpdateGroup";
 import PrivateRoutes from "../Provider/PrivateRoutes";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import DashboardHome from "../Pages/DashboardHome/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -28,14 +30,6 @@ export const router = createBrowserRouter([
         path: "allGroups",
         Component: AllGroups,
         hydrateFallbackElement: <Loader></Loader>,
-      },
-      {
-        path: "createGroup",
-        element: (
-          <PrivateRoutes>
-            <CreateGroup></CreateGroup>
-          </PrivateRoutes>
-        ),
       },
       {
         path: "register",
@@ -56,13 +50,25 @@ export const router = createBrowserRouter([
         ),
         hydrateFallbackElement: <Loader></Loader>,
       },
+      
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
+    children: [
+      {
+        index: true,
+        loader: () => fetch('http://localhost:3000/groupsCount'),
+        Component: DashboardHome
+      },
       {
         path: "myGroups",
-        element: (
-          <PrivateRoutes>
-            <MyGroups></MyGroups>
-          </PrivateRoutes>
-        ),
+        Component: MyGroups
+      },
+      {
+        path: "createGroup",
+        Component: CreateGroup
       },
       {
         path: "updateGroup/:id",
@@ -75,6 +81,6 @@ export const router = createBrowserRouter([
         ),
         hydrateFallbackElement: <Loader></Loader>,
       },
-    ],
-  },
+    ]
+  }
 ]);

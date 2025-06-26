@@ -1,6 +1,5 @@
 import Lottie from "lottie-react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import { Typewriter } from "react-simple-typewriter";
 import noDataFound from "../../assets/Animation/nodatafound.json";
 import OngoingGroupCard from "../../components/OngoingGroupCard/OngoingGroupCard";
@@ -9,24 +8,26 @@ const AllGroups = () => {
   // const groups = useLoaderData();
   const [search, setSearch] = useState("");
   const [groups, setGroups] = useState([]);
-  const [sortOrder, setSortOrder] = useState("")
+  const [sortOrder, setSortOrder] = useState("");
   const [loading, setLoading] = useState(true);
   console.log(search);
   useEffect(() => {
     fetch(`http://localhost:3000/groups?search=${search}&sort=${sortOrder}`)
       .then((res) => res.json())
       .then((data) => setGroups(data));
-      setLoading(false);
+    setLoading(false);
   }, [search, sortOrder]);
 
   useEffect(() => {
     document.title = "HobbyHub | All-Groups";
   }, []);
 
-  if(loading){
-    return <div className="flex justify-center items-center min-h-screen">
-  <div className="animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent"></div>
-</div>
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent"></div>
+      </div>
+    );
   }
 
   return (
@@ -63,9 +64,11 @@ const AllGroups = () => {
 
           {/* Sort Dropdown */}
           <div>
-            <select className="select select-bordered w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}>
+            <select
+              className="select select-bordered w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+            >
               <option disabled selected>
                 Sort by Date
               </option>
@@ -86,18 +89,14 @@ const AllGroups = () => {
             </div>
           ) : (
             <div>
-               <div
-                data-aos="fade-up"
-              >
+              <div data-aos="fade-up">
                 <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-orange-500">
                   Oops...!
                 </h2>
                 {/* Typewriter */}
                 <p className="text-center font-semibold text-lg lg:text-2xl text-gray-600 dark:text-gray-400">
                   <Typewriter
-                    words={[
-                      "Right now no group Available here...!",
-                    ]}
+                    words={["Right now no group Available here...!"]}
                     loop={true}
                     cursor
                     cursorStyle="|"
@@ -106,7 +105,6 @@ const AllGroups = () => {
                     delaySpeed={1500}
                   />
                 </p>
-                
               </div>
               <div className="flex justify-center items-center dark:bg-gray-900">
                 <Lottie

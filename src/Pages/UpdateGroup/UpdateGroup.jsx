@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
@@ -28,7 +28,6 @@ const UpdateGroup = () => {
     email,
   } = useLoaderData();
 
-  const [isDark, setIsDark] = useState(false);
 
   const handleUpdateGroup = (e) => {
     e.preventDefault();
@@ -59,32 +58,9 @@ const UpdateGroup = () => {
   };
 
   useEffect(() => {
-    const classList = document.documentElement.classList;
-    setIsDark(classList.contains("dark"));
-
-    const observer = new MutationObserver(() => {
-      setIsDark(classList.contains("dark"));
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
     document.title = `HobbyHub | Update-Group-${_id}`;
   }, [_id]);
   return (
-    <div
-      className={`min-h-screen bg-cover bg-center flex items-center justify-center ${
-        isDark
-          ? "bg-[url('https://i.ibb.co/PvPbJjMy/businessman-hand-pointing-something-touching-touch-screen-black-background-copy-space-34683-2391.jpg')]"
-          : "bg-[url('https://i.ibb.co/qMQF3MBw/cartoon-group.jpg')]"
-      }`}
-    >
       <div className="my-24 w-11/12 lg:w-10/12">
         <form
           data-aos="zoom-in"
@@ -224,7 +200,6 @@ const UpdateGroup = () => {
           </button>
         </form>
       </div>
-    </div>
   );
 };
 

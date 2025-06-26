@@ -5,8 +5,14 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import DarkMoodToggoler from "../DarkMoodToggoler/DarkMoodToggoler.jsx";
+import logo from "../../assets/logo.png"
 
-const links = (
+
+
+const Navbar = () => {
+  const { user, logoutUser } = useContext(AuthContext);
+
+  const links = (
   <>
     <li className="text-lg text-white md:text-xl">
       <NavLink to="/">Home</NavLink>
@@ -23,17 +29,15 @@ const links = (
     <li className="text-lg text-white md:text-xl ">
       <NavLink to="/support">Support</NavLink>
     </li>
-    <li className="text-lg text-white md:text-xl ">
-      <NavLink to="/createGroup">Create Group</NavLink>
+    <>
+    {
+      user && <li className="text-lg text-white md:text-xl ">
+      <NavLink to="/dashboard">Dashboard</NavLink>
     </li>
-    <li className="text-lg text-white md:text-xl ">
-      <NavLink to="/myGroups">My Groups</NavLink>
-    </li>
+    }
+    </>
   </>
 );
-
-const Navbar = () => {
-  const { user, logoutUser } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logoutUser()
@@ -77,7 +81,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <MdGroups className="rounded-full border mr-2" size={30} color="#Ffffff" />
+          <img className="w-16 h-16 mr-2" src={logo} alt="logo" />
           <h3 className="text-2xl md:text-3xl lg:text-4xl specific-text font-bold text-white hidden md:block">
             HobbyHub
           </h3>

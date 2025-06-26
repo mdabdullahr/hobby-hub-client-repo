@@ -83,7 +83,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <img className="w-16 h-16 mr-2" src={logo} alt="logo" />
+          <img className="w-12 h-12 mr-2" src={logo} alt="logo" />
           <h3 className="text-2xl md:text-3xl lg:text-4xl specific-text font-bold text-white hidden md:block">
             HobbyHub
           </h3>

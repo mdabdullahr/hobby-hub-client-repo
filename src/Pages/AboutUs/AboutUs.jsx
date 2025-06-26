@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const AboutUs = () => {
     return (
-        <div className="w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto px-4 pt-32 pb-20 text-gray-700 space-y-8">
+        <div data-aos="fade-left" className="w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto px-4 pt-32 pb-20 text-gray-700 space-y-8">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-orange-500">Who We Are & What Drives Us</h1>
 
             <p className="text-lg text-gray-600 dark:text-gray-300">

@@ -12,10 +12,10 @@ import { toast } from "react-toastify";
 
 const Footer = () => {
   return (
-    <div className="bg-orange-500 text-white py-12 lg:py-20">
+    <div data-aos="fade-up" className="bg-orange-500 text-white py-12 lg:py-20">
       <div className="w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Column 1: Logo + Title + Description */}
-        <div>
+        <div  data-aos="fade-up">
           <img
             src={logo}
             alt="HobbyHub Logo"
@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
 
         {/* Column 2: Quick Links */}
-        <div>
+        <div  data-aos="fade-up">
           <h3 className="text-xl lg:text-2xl font-semibold mb-4">
             Quick Links
           </h3>
@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
 
         {/* Column 3: Social Links + Contact */}
-        <div>
+        <div  data-aos="fade-up">
           <h3 className="text-xl lg:text-2xl font-semibold mb-4">
             Connect with Us
           </h3>
@@ -106,10 +106,16 @@ const Footer = () => {
           </div>
           <div className="space-y-4 text-sm lg:text-lg text-white/90">
             <p className="flex items-center gap-2">
-              <MdPhone /> +880 1234-567890
+              <MdPhone /> +880 1768262031 /
             </p>
             <p className="flex items-center gap-2">
-              <MdEmail /> hobbyhub@gmail.com
+              <MdPhone /> +880 1927785731
+            </p>
+            <p className="flex items-center gap-2">
+              <MdEmail /> hobbyhub@gmail.com /
+            </p>
+            <p className="flex items-center gap-2">
+              <MdEmail /> mdabdullah162005@gmail.com
             </p>
             <p className="flex items-center gap-2">
               <MdLocationOn /> Dhaka, Bangladesh
@@ -118,7 +124,7 @@ const Footer = () => {
         </div>
 
         {/* Column 4: Contact Message Form */}
-        <div>
+        <div data-aos="fade-up">
           <h3 className="text-xl lg:text-2xl font-semibold mb-4">
             Send a Message
           </h3>

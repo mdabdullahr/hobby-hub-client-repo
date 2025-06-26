@@ -154,13 +154,13 @@ const DashboardHome = () => {
         </div>
       </div>
       
-      <div className="my-10  w-full h-[50vh] 2xl:h-[80vh] rounded-2xl overflow-hidden shadow-xl relative">
+      <div className="my-10  w-full h-[50vh] 2xl:h-[90vh] rounded-2xl overflow-hidden shadow-xl relative">
         {/* Top Half - Cover Background */}
         <div
           className="h-1/2 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://i.ibb.co/2YL9GZby/cover.jpg')",
+              "url('https://i.ibb.co/RTgnQvfj/Does-Joining-Support-Group-Work.jpg')",
           }}
         ></div>
 

@@ -105,7 +105,7 @@ const DashboardLayout = () => {
               {/* Top: Logo + Links */}
               <div className="space-y-6">
                 <Link to="/">
-                  <div className="flex items-center px-6 border-b-2 border-gray-300 pb-4">
+                  <div className="flex items-center px-6 border-b-2 border-gray-300 pb-4 mt-4">
                     <img className="w-10 h-10 mr-2" src={logo} alt="Logo" />
                     <p className="-mb-2 font-bold text-2xl lg:text-3xl text-orange-600 specific-text">
                       HobbyHub
@@ -114,7 +114,7 @@ const DashboardLayout = () => {
                 </Link>
 
                 {/* Nav Links */}
-                <ul className="space-y-4 mt-4">
+                <ul className="space-y-4 mt-5">
                   <li>
                     <Link
                       to="/dashboard"

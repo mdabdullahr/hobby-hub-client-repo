@@ -13,5 +13,6 @@ body {
 }
 
 a.active{
-  text-decoration: underline;
+  background-color: #E5E7EB;
+  color: #F97316;
 }

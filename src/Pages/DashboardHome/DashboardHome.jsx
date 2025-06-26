@@ -38,7 +38,7 @@ const DashboardHome = () => {
 
   return (
     <>
-      <div className="mt-10">
+      <div>
         <h1 className="text-xl md:text-3xl font-bold mb-6 text-gray-500">
           Welcome Back!
         </h1>

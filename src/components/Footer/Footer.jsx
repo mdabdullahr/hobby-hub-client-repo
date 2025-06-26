@@ -34,7 +34,7 @@ const Footer = () => {
   }
 
   return (
-    <div className="bg-orange-500 mt-10 lg:mt-20 xl:mt-28">
+    <div className="bg-orange-500">
 
       <div
         data-aos="fade-up"

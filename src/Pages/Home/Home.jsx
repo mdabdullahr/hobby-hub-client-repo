@@ -28,7 +28,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="mb-10">
+    <div className="mb-10 lg:mb-20 xl:mb-28">
       <Banner />
 
       <section className="w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto">

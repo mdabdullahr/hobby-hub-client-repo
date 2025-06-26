@@ -5,39 +5,37 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import DarkMoodToggoler from "../DarkMoodToggoler/DarkMoodToggoler.jsx";
-import logo from "../../assets/logo.png"
-
-
+import logo from "../../assets/logo.png";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
 
   const links = (
-  <>
-    <li className="text-lg text-white md:text-xl">
-      <NavLink to="/">Home</NavLink>
-    </li>
-    <li className="text-lg text-white md:text-xl ">
-      <NavLink to="/allGroups">All Groups</NavLink>
-    </li>
-    <li className="text-lg text-white md:text-xl ">
-      <NavLink to="/about">About Us</NavLink>
-    </li>
-    <li className="text-lg text-white md:text-xl ">
-      <NavLink to="/contact">Contact</NavLink>
-    </li>
-    <li className="text-lg text-white md:text-xl ">
-      <NavLink to="/support">Support</NavLink>
-    </li>
     <>
-    {
-      user && <li className="text-lg text-white md:text-xl ">
-      <NavLink to="/dashboard">Dashboard</NavLink>
-    </li>
-    }
+      <li className="text-lg text-white md:text-xl">
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li className="text-lg text-white md:text-xl ">
+        <NavLink to="/allGroups">All Groups</NavLink>
+      </li>
+      <li className="text-lg text-white md:text-xl ">
+        <NavLink to="/about">About Us</NavLink>
+      </li>
+      <li className="text-lg text-white md:text-xl ">
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
+      <li className="text-lg text-white md:text-xl ">
+        <NavLink to="/support">Support</NavLink>
+      </li>
+      <>
+        {user && (
+          <li className="text-lg text-white md:text-xl ">
+            <NavLink to="/dashboard">Dashboard</NavLink>
+          </li>
+        )}
+      </>
     </>
-  </>
-);
+  );
 
   const handleLogOut = () => {
     logoutUser()
@@ -57,7 +55,11 @@ const Navbar = () => {
       <div className="navbar w-11/12 mx-auto py-3">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className=" mr-5 lg:hidden text-black dark:text-white">
+            <div
+              tabIndex={0}
+              role="button"
+              className=" mr-5 lg:hidden text-black dark:text-white"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -110,7 +112,7 @@ const Navbar = () => {
             <button
               onClick={handleLogOut}
               data-aos="zoom-in"
-              className="text-orange-500 specific-text text-sm md:text-2xl bg-white font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 cursor-pointer whitespace-nowrap"
+              className="text-white hover:text-orange-600 bg-orange-500 hover:bg-orange-100 border border-white text-sm md:text-lg font-semibold px-4 md:px-6 py-2 rounded-lg transition duration-300 hover:shadow-lg whitespace-nowrap cursor-pointer"
             >
               LogOut
             </button>
@@ -118,7 +120,7 @@ const Navbar = () => {
             <Link
               to="/login"
               data-aos="zoom-in"
-              className="text-orange-500 bg-white text-sm md:text-2xl specific-text font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 whitespace-nowrap"
+              className="text-white hover:text-orange-600 bg-orange-500 hover:bg-orange-100 border border-white text-sm md:text-lg font-semibold px-4 md:px-6 py-2 rounded-lg transition duration-300 hover:shadow-lg whitespace-nowrap cursor-pointer"
             >
               Login
             </Link>

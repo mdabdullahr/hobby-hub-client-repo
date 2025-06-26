@@ -54,32 +54,19 @@ const CreateGroup = () => {
       <form
         data-aos="zoom-in"
         onSubmit={handleCreateGroup}
-        className="space-y-6 text-gray-800 p-5 md:p-10 lg:p-16"
+        className="bg-white shadow-lg rounded-lg p-5 md:p-10 lg:p-14 space-y-10 text-gray-800"
       >
-        {/* Add typewriter */}
-        <p className="text-center text-lg md:text-xl font-medium mb-2 text-orange-600">
-          <Typewriter
-            words={[
-              "Your passion, your group",
-              "Start something new",
-              "Create a community",
-            ]}
-            loop={true}
-            cursor
-            cursorStyle="|"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1500}
-          />
-        </p>
 
-        <h2 className=" mb-10 text-3xl lg:text-4xl font-bold text-gray-600 border-b border-gray-300 pb-2 specific-text">
-          Create Group
+        {/* Title */}
+        <h2 className="text-3xl lg:text-4xl font-bold text-center text-orange-600 border-b-2 pb-4">
+          Create Your Hobby Group
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        {/* Form Fields */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Group Name */}
-          <div className="w-full">
-            <label className="block mb-1 font-semibold" htmlFor="groupName">
+          <div>
+            <label htmlFor="groupName" className="font-semibold mb-1 block">
               Group Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -87,20 +74,20 @@ const CreateGroup = () => {
               name="groupName"
               type="text"
               required
-              className="w-full rounded-lg border border-gray-300 shadow-sm p-3 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
-              placeholder="Enter group name"
+              placeholder="e.g., Photography Lovers"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
             />
           </div>
 
           {/* Hobby Category */}
           <div>
-            <label className="block mb-1 font-semibold" htmlFor="hobbyCategory">
+            <label htmlFor="hobbyCategory" className="font-semibold mb-1 block">
               Hobby Category
             </label>
             <select
               id="hobbyCategory"
               name="hobbyCategory"
-              className="w-full rounded-lg border border-gray-300 shadow-sm p-3 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
             >
               {hobbyCategories.map((cat) => (
                 <option key={cat} value={cat}>
@@ -113,8 +100,8 @@ const CreateGroup = () => {
           {/* Meeting Location */}
           <div>
             <label
-              className="block mb-1 font-semibold"
               htmlFor="meetingLocation"
+              className="font-semibold mb-1 block"
             >
               Meeting Location <span className="text-red-500">*</span>
             </label>
@@ -123,14 +110,14 @@ const CreateGroup = () => {
               name="meetingLocation"
               type="text"
               required
-              className="w-full rounded-lg border border-gray-300 shadow-sm p-3 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
-              placeholder="Enter meeting location"
+              placeholder="Dhaka, Bangladesh"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
             />
           </div>
 
           {/* Max Members */}
           <div>
-            <label className="block mb-1 font-semibold" htmlFor="maxMembers">
+            <label htmlFor="maxMembers" className="font-semibold mb-1 block">
               Max Members <span className="text-red-500">*</span>
             </label>
             <input
@@ -139,14 +126,14 @@ const CreateGroup = () => {
               type="number"
               min="1"
               required
-              className="w-full rounded-lg border border-gray-300 shadow-sm p-3 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
-              placeholder="Enter max members"
+              placeholder="e.g., 10"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
             />
           </div>
 
           {/* Start Date */}
           <div>
-            <label className="block mb-1 font-semibold" htmlFor="startDate">
+            <label htmlFor="startDate" className="font-semibold mb-1 block">
               Start Date <span className="text-red-500">*</span>
             </label>
             <input
@@ -154,13 +141,13 @@ const CreateGroup = () => {
               name="startDate"
               type="date"
               required
-              className="w-full rounded-lg border border-gray-300 shadow-sm p-3 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
             />
           </div>
 
           {/* Image URL */}
           <div>
-            <label className="block mb-1 font-semibold" htmlFor="imageUrl">
+            <label htmlFor="imageUrl" className="font-semibold mb-1 block">
               Image URL <span className="text-red-500">*</span>
             </label>
             <input
@@ -168,39 +155,37 @@ const CreateGroup = () => {
               name="imageUrl"
               type="url"
               required
-              placeholder="image URL"
-              className="w-full rounded-lg border border-gray-300 shadow-sm p-3 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
+              placeholder="https://your-image-link.com"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
             />
           </div>
 
-          {/* User Name (readonly) */}
+          {/* User Name */}
           <div>
-            <label className="block mb-1 font-semibold">User Name</label>
+            <label className="font-semibold mb-1 block">User Name</label>
             <input
               value={user.displayName}
               readOnly
-              name="name"
               type="text"
-              className="w-full rounded-lg border border-gray-300 shadow-sm p-3 bg-gray-100 cursor-not-allowed"
+              className="w-full p-3 rounded-lg bg-gray-100 text-gray-600 border border-gray-300 cursor-not-allowed"
             />
           </div>
 
-          {/* User Email (readonly) */}
+          {/* User Email */}
           <div>
-            <label className="block mb-1 font-semibold">User Email</label>
+            <label className="font-semibold mb-1 block">User Email</label>
             <input
               value={user.email}
               readOnly
-              name="email"
               type="email"
-              className="w-full rounded-lg border border-gray-300 shadow-sm p-3 bg-gray-100 cursor-not-allowed"
+              className="w-full p-3 rounded-lg bg-gray-100 text-gray-600 border border-gray-300 cursor-not-allowed"
             />
           </div>
         </div>
 
         {/* Description */}
         <div>
-          <label className="block mb-1 font-semibold" htmlFor="description">
+          <label htmlFor="description" className="font-semibold mb-1 block">
             Description <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -208,17 +193,17 @@ const CreateGroup = () => {
             name="description"
             required
             rows={4}
-            className="w-full rounded-lg border border-gray-300 shadow-sm p-3 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
-            placeholder="Write a brief description"
+            placeholder="Describe your group's purpose, activities, and benefits..."
+            className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
           />
         </div>
 
-        {/* Create Button */}
+        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full cursor-pointer bg-white border border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white font-medium py-4 rounded-lg text-xl shadow-lg"
+          className="w-full bg-orange-500 text-white font-semibold py-4 rounded-lg text-xl hover:bg-orange-600 transition transform hover:scale-105 cursor-pointer"
         >
-          Create
+          Create Group
         </button>
       </form>
     </div>

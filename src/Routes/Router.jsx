@@ -13,6 +13,7 @@ import UpdateGroup from "../Pages/UpdateGroup/UpdateGroup";
 import PrivateRoutes from "../Provider/PrivateRoutes";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import DashboardHome from "../Pages/DashboardHome/DashboardHome";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
+     loader: () => fetch('http://localhost:3000/groupsCount'),
     element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
     children: [
       {
@@ -74,13 +76,13 @@ export const router = createBrowserRouter([
         path: "updateGroup/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/groups/${params.id}`),
-        element: (
-          <PrivateRoutes>
-            <UpdateGroup></UpdateGroup>
-          </PrivateRoutes>
-        ),
+        Component: UpdateGroup,
         hydrateFallbackElement: <Loader></Loader>,
       },
+      {
+        path: "updateProfile",
+        Component: UpdateProfile
+      }
     ]
   }
 ]);

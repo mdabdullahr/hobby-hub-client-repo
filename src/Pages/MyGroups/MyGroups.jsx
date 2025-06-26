@@ -53,15 +53,15 @@ const MyGroups = () => {
     document.title = "HobbyHub | My-Groups";
   }, []);
   return (
-    <div className="pt-24 w-full max-w-7xl mx-auto mb-20">
-      <div data-aos="zoom-in">
+    <div>
+      <div data-aos="fade-left">
         <h2
-          className="text-2xl md:text-4xl lg:text-5xl text-orange-500 font-bold text-center specific-text
+          className="text-3xl lg:text-4xl font-bold text-center text-orange-600 pb-4
         "
         >
           Your Created Group
         </h2>
-        <p className="text-center text-gray-500 text-sm md:text-lg lg:text-xl mb-6 lg:mb-10 mt-2 px-0 lg:px-20">
+        <p className=" text-gray-500 text-sm md:text-lg lg:text-xl mb-6 lg:mb-10 mt-2">
           On this page you will be able to see all your created groups and take
           action. You will be able to see the details of your group, if you need
           to update the group then you can update it by clicking on the update
@@ -69,88 +69,100 @@ const MyGroups = () => {
           clicking on the delete button
         </p>
       </div>
-      <div
-        data-aos="fade-up"
-        className="overflow-x-auto rounded-xl shadow-2xl dark:bg-gray-800"
-      >
+      <div data-aos="fade-up" className="overflow-x-auto rounded-lg">
         {myGroups.length ? (
-          <table className="table w-full text-center md:text-left">
+          <table className="w-full text-left rounded-lg overflow-hidden shadow-md bg-white">
             {/* head */}
-            <thead className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
+            <thead className="bg-gray-200 text-gray-700 text-sm md:text-base lg:text-lg uppercase">
               <tr>
-                <th className="text-sm md:text-base lg:text-lg">No.</th>
-                <th className="text-sm md:text-base lg:text-lg">Group Name</th>
-                <th className="text-sm md:text-base lg:text-lg">Admin</th>
-                <th className="text-sm md:text-base lg:text-lg">Email</th>
-                <th className="text-sm md:text-base lg:text-lg">Action</th>
+                <th className="px-4 py-3">No.</th>
+                <th className="px-4 py-3">Group Name</th>
+                <th className="px-4 py-3">Start Date</th>
+                <th className="px-4 py-3">Admin</th>
+                <th className="px-4 py-3">Email</th>
+                <th className="px-4 py-3">Location</th>
+                <th className="px-4 py-3 text-center">Action</th>
               </tr>
             </thead>
+
             <tbody>
               {myGroups.map((group, index) => (
                 <tr
-                  className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
                   key={group._id}
+                  className="border-b hover:bg-orange-50 transition-colors duration-200"
                 >
-                  <td className="text-xs md:text-sm lg:text-base font-semibold text-gray-600 dark:text-gray-400">
+                  <td className="px-4 py-3 text-xs md:text-sm lg:text-base font-medium text-gray-600">
                     {index + 1}
                   </td>
-                  <td>
-                    <div className="flex flex-col md:flex-row items-start md:items-center gap-1 md:gap-3 ">
-                      <div>
-                        <div className="font-bold text-sm md:text-lg text-gray-500 dark:text-gray-400">
-                          {group.groupName}
-                        </div>
-                        <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 ">
-                          {group.hobbyCategory}
-                        </div>
-                      </div>
+
+                  <td className="px-4 py-3 flex items-center gap-4">
+                    <div>
+                      <img
+                      className="w-12 h-12 object-cover rounded-lg"
+                      src={group.imageUrl}
+                      alt=""
+                    />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-semibold text-sm md:text-base text-gray-800">
+                        {group.groupName}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        {group.hobbyCategory}
+                      </span>
                     </div>
                   </td>
-                  <td className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">
+
+                  <td className="px-4 py-3 text-sm text-gray-700">
+                    {group.startDate}
+                  </td>
+
+                  <td className="px-4 py-3 text-sm text-gray-700">
                     {group.name}
                   </td>
-                  <td className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">
+
+                  <td className="px-4 py-3 text-sm text-gray-700">
                     {group.email}
                   </td>
-                  <td>
-                    <div className="flex gap-4">
+
+                  <td className="px-4 py-3 text-sm text-gray-700">
+                    {group.meetingLocation}
+                  </td>
+
+                  <td className="px-4 py-3">
+                    <div className="flex justify-center gap-3">
                       <Link to={`/groupDetail/${group._id}`}>
-                        <button className="cursor-pointer rounded bg-transparent shadow shadow-gray-300 p-[10px]">
-                          <BsFillInfoCircleFill size={20} color=" #17a2b8" />
+                        <button className="p-2 bg-cyan-100 text-cyan-600 rounded-full hover:bg-cyan-200 transition cursor-pointer">
+                          <BsFillInfoCircleFill size={18} />
                         </button>
                       </Link>
+
                       <Link to={`/dashboard/updateGroup/${group._id}`}>
-                        <button className="cursor-pointer rounded bg-transparent shadow shadow-gray-300 p-[10px]">
-                          <FaPen size={20} color="#b182e3" />
+                        <button className="p-2 bg-purple-100 text-purple-600 rounded-full hover:bg-purple-200 transition cursor-pointer">
+                          <FaPen size={18} />
                         </button>
                       </Link>
+
                       <button
                         onClick={() => removeGroupFromDB(group._id)}
-                        className="cursor-pointer rounded bg-transparent shadow shadow-gray-300 p-[10px]"
+                        className="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition cursor-pointer"
                       >
-                        <MdDelete size={20} color="#FF0000" />
+                        <MdDelete size={18} />
                       </button>
                     </div>
                   </td>
+                  
                 </tr>
               ))}
             </tbody>
           </table>
         ) : (
           <div>
-            <div className="flex justify-center items-center dark:bg-gray-900">
-              <Lottie
-                animationData={noDataFound}
-                loop
-                autoplay
-                className="w-[500px] h-[500px]"
-              />
-            </div>
             <div
               data-aos="fade-up"
-              className="p-10 lg:p-20 space-y-5 dark:bg-gray-800"
+              className="p-10 lg:p-20 space-y-5"
             >
-              <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-red-400">
+              <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-orange-500">
                 Oops...!
               </h2>
               {/* Typewriter */}
@@ -158,8 +170,6 @@ const MyGroups = () => {
                 <Typewriter
                   words={[
                     "Right now your no group Available here...!",
-                    "Try another interest!",
-                    "Or create your own group!",
                   ]}
                   loop={true}
                   cursor
@@ -169,13 +179,16 @@ const MyGroups = () => {
                   delaySpeed={1500}
                 />
               </p>
-              <Link
-                className="text-white bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded mt-2 flex justify-center items-center font-semibold"
-                to="/createGroup"
-              >
-                Create Group
-              </Link>
             </div>
+            <div className="flex justify-center items-center dark:bg-gray-900">
+              <Lottie
+                animationData={noDataFound}
+                loop
+                autoplay
+                className="w-[300px] h-[300px]"
+              />
+            </div>
+            
           </div>
         )}
       </div>

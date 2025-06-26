@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import { useLoaderData} from "react-router";
 import Swal from "sweetalert2";
 
 const hobbyCategories = [
@@ -14,7 +14,6 @@ const hobbyCategories = [
 ];
 
 const UpdateGroup = () => {
-  const navigate = useNavigate();
   const {
     groupName,
     hobbyCategory,
@@ -27,7 +26,6 @@ const UpdateGroup = () => {
     name,
     email,
   } = useLoaderData();
-
 
   const handleUpdateGroup = (e) => {
     e.preventDefault();
@@ -52,7 +50,6 @@ const UpdateGroup = () => {
             icon: "success",
             draggable: true,
           });
-          navigate("/");
         }
       });
   };
@@ -61,145 +58,172 @@ const UpdateGroup = () => {
     document.title = `HobbyHub | Update-Group-${_id}`;
   }, [_id]);
   return (
-      <div className="my-24 w-11/12 lg:w-10/12">
-        <form
-          data-aos="zoom-in"
-          onSubmit={handleUpdateGroup}
-          className="max-w-6xl space-y-6 text-gray-600 dark:text-gray-400 shadow-2xl p-5 md:p-10 lg:p-16 rounded-2xl transition-transform duration-500 hover:scale-105 dark:bg-gray-900"
-        >
-          <h2 className="text-center mb-10 text-2xl md:text-4xl specific-text font-bold text-orange-500">
-            Update Group
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Group Name */}
-            <div>
-              <label className="font-semibold mb-1">Group Name</label>
-              <input
-                id="groupName"
-                name="groupName"
-                type="text"
-                defaultValue={groupName}
-                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
-                placeholder="Enter group name"
-              />
-            </div>
+    <div>
+      <form
+        data-aos="zoom-in"
+        onSubmit={handleUpdateGroup}
+        className="bg-white shadow-lg rounded-lg p-5 md:p-10 lg:p-14 space-y-10 text-gray-800"
+      >
+        {/* Title */}
+        <h2 className="text-3xl lg:text-4xl font-bold text-center text-orange-600 border-b-2 pb-4">
+          Update Your Hobby Group
+        </h2>
 
-            {/* Hobby Category */}
-            <div>
-              <label className="mb-1 font-semibold">Hobby Category</label>
-              <select
-                id="hobbyCategory"
-                name="hobbyCategory"
-                defaultValue={hobbyCategory}
-                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
-              >
-                {hobbyCategories.map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Meeting Location */}
-            <div>
-              <label className="mb-1 font-semibold">Meeting Location</label>
-              <input
-                id="meetingLocation"
-                name="meetingLocation"
-                type="text"
-                defaultValue={meetingLocation}
-                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
-                placeholder="Enter meeting location"
-              />
-            </div>
-
-            {/* Max Members */}
-            <div>
-              <label className="mb-1 font-semibold">Max Members</label>
-              <input
-                id="maxMembers"
-                name="maxMembers"
-                type="number"
-                min="1"
-                defaultValue={maxMembers}
-                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
-                placeholder="Enter max members"
-              />
-            </div>
-
-            {/* Start Date */}
-            <div>
-              <label className="mb-1 font-semibold">Start Date</label>
-              <input
-                id="startDate"
-                name="startDate"
-                type="date"
-                defaultValue={startDate}
-                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
-              />
-            </div>
-
-            {/* Image URL */}
-            <div>
-              <label className=" mb-1 font-semibold">Image URL</label>
-              <input
-                defaultValue={imageUrl}
-                id="imageUrl"
-                name="imageUrl"
-                type="url"
-                placeholder="image URL"
-                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
-              />
-            </div>
-
-            {/* User Name (readonly) */}
-            <div>
-              <label className="block mb-1 font-semibold">User Name</label>
-              <input
-                value={name}
-                readOnly
-                name="name"
-                type="text"
-                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
-              />
-            </div>
-
-            {/* User Email (readonly) */}
-            <div>
-              <label className="block mb-1 font-semibold">User Email</label>
-              <input
-                value={email}
-                readOnly
-                name="email"
-                type="email"
-                className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
-              />
-            </div>
-          </div>
-          {/* Description */}
+        {/* Form Fields */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Group Name */}
           <div>
-            <label className="mb-1 font-semibold">Description</label>
-            <textarea
-              id="description"
-              name="description"
-              defaultValue={description}
-              rows={4}
-              className="w-full rounded-md p-2  bg-white dark:bg-gray-800 focus:outline-none"
-              placeholder="Write a brief description"
+            <label htmlFor="groupName" className="font-semibold mb-1 block">
+              Group Name <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="groupName"
+              name="groupName"
+              type="text"
+              defaultValue={groupName}
+              required
+              placeholder="e.g., Photography Lovers"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
             />
           </div>
 
-          {/* Create Button */}
-          <button
-            data-aos="zoom-in"
-            type="submit"
-            className="w-full cursor-pointer bg-transparent border-4 border-white shadow hover:bg-orange-600 hover:text-white text-orange-600 font-semibold py-3 rounded-md text-2xl specific-text transition-transform duration-500 hover:scale-105"
-          >
-            Update
-          </button>
-        </form>
-      </div>
+          {/* Hobby Category */}
+          <div>
+            <label htmlFor="hobbyCategory" className="font-semibold mb-1 block">
+              Hobby Category
+            </label>
+            <select
+              id="hobbyCategory"
+              name="hobbyCategory"
+              defaultValue={hobbyCategory}
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+            >
+              {hobbyCategories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Meeting Location */}
+          <div>
+            <label
+              htmlFor="meetingLocation"
+              className="font-semibold mb-1 block"
+            >
+              Meeting Location <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="meetingLocation"
+              name="meetingLocation"
+              type="text"
+              defaultValue={meetingLocation}
+              required
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+              placeholder="Dhaka, Bangladesh"
+            />
+          </div>
+
+          {/* Max Members */}
+          <div>
+            <label htmlFor="maxMembers" className="font-semibold mb-1 block">
+              Max Members <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="maxMembers"
+              name="maxMembers"
+              type="number"
+              min="1"
+              defaultValue={maxMembers}
+              required
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+              placeholder="e.g., 10"
+            />
+          </div>
+
+          {/* Start Date */}
+          <div>
+            <label htmlFor="startDate" className="font-semibold mb-1 block">
+              Start Date <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="startDate"
+              name="startDate"
+              type="date"
+              defaultValue={startDate}
+              required
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+            />
+          </div>
+
+          {/* Image URL */}
+          <div>
+            <label htmlFor="imageUrl" className="font-semibold mb-1 block">
+              Image URL <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="imageUrl"
+              name="imageUrl"
+              type="url"
+              defaultValue={imageUrl}
+              required
+              className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+              placeholder="https://your-image-link.com"
+            />
+          </div>
+
+          {/* User Name */}
+          <div>
+            <label className="font-semibold mb-1 block">User Name</label>
+            <input
+              value={name}
+              readOnly
+              name="name"
+              type="text"
+              className="w-full p-3 rounded-lg bg-gray-100 text-gray-600 border border-gray-300 cursor-not-allowed"
+            />
+          </div>
+
+          {/* User Email */}
+          <div>
+            <label className="font-semibold mb-1 block">User Email</label>
+            <input
+              value={email}
+              readOnly
+              name="email"
+              type="email"
+              className="w-full p-3 rounded-lg bg-gray-100 text-gray-600 border border-gray-300 cursor-not-allowed"
+            />
+          </div>
+        </div>
+
+        {/* Description */}
+        <div>
+          <label htmlFor="description" className="font-semibold mb-1 block">
+            Description <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            defaultValue={description}
+            rows={4}
+            required
+            placeholder="Write a brief description..."
+            className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+          />
+        </div>
+
+        {/* Submit Button */}
+        <button
+          data-aos="zoom-in"
+          type="submit"
+          className="w-full bg-orange-500 text-white font-semibold py-4 rounded-lg text-xl hover:bg-orange-600 transition transform hover:scale-105 cursor-pointer"
+        >
+          Update Group
+        </button>
+      </form>
+    </div>
   );
 };
 

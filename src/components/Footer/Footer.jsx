@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 const Footer = () => {
   return (
-    <div className="bg-orange-500 text-white pt-12 pb-12 md:pb-20 lg:pb-24">
+    <div className="bg-orange-500 text-white py-12 lg:py-20">
       <div className="w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Column 1: Logo + Title + Description */}
         <div>
@@ -49,6 +49,11 @@ const Footer = () => {
             <li>
               <Link to="/dashboard" className="hover:underline">
                 Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:underline">
+                About Us
               </Link>
             </li>
             <li>

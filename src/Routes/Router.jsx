@@ -14,6 +14,7 @@ import PrivateRoutes from "../Provider/PrivateRoutes";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import DashboardHome from "../Pages/DashboardHome/DashboardHome";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
         ),
         hydrateFallbackElement: <Loader></Loader>,
       },
+      {
+        path: "about",
+        Component: AboutUs
+      }
       
     ],
   },

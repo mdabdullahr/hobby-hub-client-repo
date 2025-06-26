@@ -8,7 +8,7 @@ const MainLayout = () => {
   return (
     <>
       <ThemeProvider>
-        <div className="bg-white dark:bg-gray-900 dark:text-white">
+        <div className="bg-gray-100 dark:bg-gray-900">
           <Navbar />
           <div>
             <Outlet />

@@ -31,7 +31,7 @@ const AllGroups = () => {
   }
 
   return (
-    <div className="pt-24 lg:pt-32 px-5 w-11/12 xl:w-10/12 2xl:w-9/12 mx-auto">
+    <div className="pt-24 lg:pt-32 px-5 w-11/12 xl:w-10/12 2xl:w-9/12 mx-auto mb-10 lg:mb-20 xl:mb-28">
       <h2
         data-aos="zoom-in"
         className="text-2xl md:text-4xl text-orange-500 font-bold"
@@ -79,7 +79,7 @@ const AllGroups = () => {
         </div>
         <div data-aos="fade-up" className="w-full lg:w-[75%]">
           {groups.length ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {groups.map((group) => (
                 <OngoingGroupCard
                   key={group._id}

@@ -35,7 +35,7 @@ const OngoingGroupCard = ({ group }) => {
 
       <div>
         <div className="space-y-3">
-          <h3 className="text-lg md:text-xl font-bold text-gray-700 dark:text-gray-300 mt-2 w-fit">
+          <h3 className="text-lg md:text-xl font-bold text-gray-700 dark:text-gray-300 mt-2 overflow-hidden">
             {groupName}
           </h3>
           <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 line-clamp-2">

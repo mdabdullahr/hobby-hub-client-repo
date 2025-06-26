@@ -9,16 +9,25 @@ const AllGroups = () => {
   // const groups = useLoaderData();
   const [search, setSearch] = useState("");
   const [groups, setGroups] = useState([]);
+  const [sortOrder, setSortOrder] = useState("")
+  const [loading, setLoading] = useState(true);
   console.log(search);
   useEffect(() => {
-    fetch(`http://localhost:3000/groups?search=${search}`)
+    fetch(`http://localhost:3000/groups?search=${search}&sort=${sortOrder}`)
       .then((res) => res.json())
       .then((data) => setGroups(data));
-  }, [search]);
+      setLoading(false);
+  }, [search, sortOrder]);
 
   useEffect(() => {
     document.title = "HobbyHub | All-Groups";
   }, []);
+
+  if(loading){
+    return <div className="flex justify-center items-center min-h-screen">
+  <div className="animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent"></div>
+</div>
+  }
 
   return (
     <div className="pt-24 lg:pt-32 px-5 w-11/12 xl:w-10/12 2xl:w-9/12 mx-auto">
@@ -37,7 +46,7 @@ const AllGroups = () => {
       </p>
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="shadow h-[200px] rounded-lg w-full lg:w-[25%] p-10 bg-white dark:bg-gray-800">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-orange-500 mb-4">
             Search & Sort
           </h2>
 
@@ -54,7 +63,9 @@ const AllGroups = () => {
 
           {/* Sort Dropdown */}
           <div>
-            <select className="select select-bordered w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            <select className="select select-bordered w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}>
               <option disabled selected>
                 Sort by Date
               </option>
@@ -65,7 +76,7 @@ const AllGroups = () => {
         </div>
         <div data-aos="fade-up" className="w-full lg:w-[75%]">
           {groups.length ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
               {groups.map((group) => (
                 <OngoingGroupCard
                   key={group._id}

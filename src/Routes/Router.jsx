@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
 import AllGroups from "../Pages/AllGroups/AllGroups";
 import CreateGroup from "../Pages/CreateGroup/CreateGroup";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import GroupDetail from "../Pages/GroupDetail/GroupDetail";
 import Home from "../Pages/Home/Home";
 import Loader from "../Pages/Loader/Loader";
@@ -10,7 +11,6 @@ import MyGroups from "../Pages/MyGroups/MyGroups";
 import Register from "../Pages/Register/Register";
 import UpdateGroup from "../Pages/UpdateGroup/UpdateGroup";
 import PrivateRoutes from "../Provider/PrivateRoutes";
-import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,15 +20,12 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () =>
-          fetch("https://hobbyhub-11-server-site.vercel.app/groups"),
+        loader: () => fetch("http://localhost:3000/groups"),
         Component: Home,
         hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "allGroups",
-        loader: () =>
-          fetch("https://hobbyhub-11-server-site.vercel.app/groups"),
         Component: AllGroups,
         hydrateFallbackElement: <Loader></Loader>,
       },
@@ -51,9 +48,7 @@ export const router = createBrowserRouter([
       {
         path: "groupDetail/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://hobbyhub-11-server-site.vercel.app/groups/${params.id}`
-          ),
+          fetch(`http://localhost:3000/groups/${params.id}`),
         element: (
           <PrivateRoutes>
             <GroupDetail></GroupDetail>
@@ -72,9 +67,7 @@ export const router = createBrowserRouter([
       {
         path: "updateGroup/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://hobbyhub-11-server-site.vercel.app/groups/${params.id}`
-          ),
+          fetch(`http://localhost:3000/groups/${params.id}`),
         element: (
           <PrivateRoutes>
             <UpdateGroup></UpdateGroup>

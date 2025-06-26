@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 const Banner = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="w-full">
+    <div className="w-full overflow-x-hidden">
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
         spaceBetween={30}

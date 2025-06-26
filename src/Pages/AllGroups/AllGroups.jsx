@@ -1,130 +1,84 @@
 import Lottie from "lottie-react";
 import { useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router";
-import noDataFound from "../../assets/Animation/nodatafound.json";
+import { Link } from "react-router";
 import { Typewriter } from "react-simple-typewriter";
+import noDataFound from "../../assets/Animation/nodatafound.json";
+import OngoingGroupCard from "../../components/OngoingGroupCard/OngoingGroupCard";
 
 const AllGroups = () => {
-  const groups = useLoaderData();
-
-  const [isDark, setIsDark] = useState(false);
-
+  // const groups = useLoaderData();
+  const [search, setSearch] = useState("");
+  const [groups, setGroups] = useState([]);
+  console.log(search);
   useEffect(() => {
-    const classList = document.documentElement.classList;
-    setIsDark(classList.contains("dark"));
-
-    const observer = new MutationObserver(() => {
-      setIsDark(classList.contains("dark"));
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+    fetch(`http://localhost:3000/groups?search=${search}`)
+      .then((res) => res.json())
+      .then((data) => setGroups(data));
+  }, [search]);
 
   useEffect(() => {
     document.title = "HobbyHub | All-Groups";
   }, []);
 
   return (
-    <div
-      className={`bg-cover bg-center p-4 md:p-6 ${
-        isDark
-          ? "bg-gray-900"
-          : "bg-[url('https://i.ibb.co/4ZG779SZ/paingting.jpg')]"
-      }`}
-    >
-      <div className="pt-24 w-full max-w-7xl mx-auto mb-20">
-        <h2
-          data-aos="zoom-in"
-          className="text-2xl md:text-4xl lg:text-5xl text-orange-500 font-bold text-center specific-text"
-        >
-          ALL Groups
-        </h2>
-        <p className="text-center text-gray-500 text-sm md:text-lg lg:text-xl mb-6 lg:mb-10 mt-2 px-0 lg:px-20">
-          On this page, you will be able to explore all the groups created by
-          different users. You can view group details and learn more about each
-          group’s purpose and members. Please note that you cannot update or
-          delete any groups from this section, as it is for informational
-          purposes only.
-        </p>
+    <div className="pt-24 lg:pt-32 px-5 w-11/12 xl:w-10/12 2xl:w-9/12 mx-auto">
+      <h2
+        data-aos="zoom-in"
+        className="text-2xl md:text-4xl text-orange-500 font-bold"
+      >
+        ALL Groups
+      </h2>
+      <p className=" text-gray-500 text-sm md:text-lg lg:text-xl mb-6 lg:mb-10 mt-2">
+        On this page, you will be able to explore all the groups created by
+        different users. You can view group details and learn more about each
+        group’s purpose and members. Please note that you cannot update or
+        delete any groups from this section, as it is for informational purposes
+        only.
+      </p>
+      <div className="flex flex-col lg:flex-row gap-6">
+        <div className="shadow h-[200px] rounded-lg w-full lg:w-[25%] p-10 bg-white dark:bg-gray-800">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+            Search & Sort
+          </h2>
 
-        <div
-          data-aos="fade-up"
-          className="overflow-x-auto rounded-xl shadow-2xl"
-        >
+          {/* Search Field */}
+          <div className="mb-4">
+            <input
+              type="text"
+              placeholder="🔍  Search by title, group, or location..."
+              className="input input-bordered w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+
+          {/* Sort Dropdown */}
+          <div>
+            <select className="select select-bordered w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500">
+              <option disabled selected>
+                Sort by Date
+              </option>
+              <option value="newest">Newest to Oldest</option>
+              <option value="oldest">Oldest to Newest</option>
+            </select>
+          </div>
+        </div>
+        <div data-aos="fade-up" className="w-full lg:w-[75%]">
           {groups.length ? (
-            <div className="overflow-x-auto rounded-xl shadow-md dark:bg-gray-800">
-              <table className="table w-full text-center md:text-left">
-                {/* head */}
-                <thead className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
-                  <tr>
-                    <th className="text-sm md:text-base lg:text-lg">No.</th>
-                    <th className="text-sm md:text-base lg:text-lg">
-                      Group Name
-                    </th>
-                    <th className="text-sm md:text-base lg:text-lg">Admin</th>
-                    <th className="text-sm md:text-base lg:text-lg">Email</th>
-                    <th className="text-sm md:text-base lg:text-lg">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {groups.map((group, index) => (
-                    <tr
-                      className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
-                      key={group._id}
-                    >
-                      <td className="text-xs md:text-sm lg:text-base font-semibold text-gray-600 dark:text-gray-400">
-                        {index + 1}
-                      </td>
-                      <td>
-                        <div className="flex flex-col md:flex-row items-start md:items-center gap-1 md:gap-3">
-                          <div>
-                            <div className="font-bold text-sm md:text-lg text-gray-600 dark:text-gray-400">
-                              {group.groupName}
-                            </div>
-                            <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
-                              {group.hobbyCategory}
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">
-                        {group.name}
-                      </td>
-                      <td className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">
-                        {group.email}
-                      </td>
-                      <td>
-                        <Link to={`/groupDetail/${group._id}`}>
-                          <button className="cursor-pointer text-orange-500 text-xs md:text-sm lg:text-lg underline">
-                            See more
-                          </button>
-                        </Link>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+              {groups.map((group) => (
+                <OngoingGroupCard
+                  key={group._id}
+                  group={group}
+                ></OngoingGroupCard>
+              ))}
             </div>
           ) : (
             <div>
-              <div className="flex justify-center items-center dark:bg-gray-900">
-                <Lottie
-                  animationData={noDataFound}
-                  loop
-                  autoplay
-                  className="w-[500px] h-[500px]"
-                />
-              </div>
-              <div
+               <div
                 data-aos="fade-up"
-                className="p-10 lg:p-20 space-y-5 dark:bg-gray-800"
               >
-                <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-red-400">
+                <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-orange-500">
                   Oops...!
                 </h2>
                 {/* Typewriter */}
@@ -132,8 +86,6 @@ const AllGroups = () => {
                   <Typewriter
                     words={[
                       "Right now no group Available here...!",
-                      "Try another interest!",
-                      "Or create your own group!",
                     ]}
                     loop={true}
                     cursor
@@ -143,12 +95,15 @@ const AllGroups = () => {
                     delaySpeed={1500}
                   />
                 </p>
-                <Link
-                  className="text-white bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded mt-2 flex justify-center items-center font-semibold"
-                  to="/createGroup"
-                >
-                  Create Group
-                </Link>
+                
+              </div>
+              <div className="flex justify-center items-center dark:bg-gray-900">
+                <Lottie
+                  animationData={noDataFound}
+                  loop
+                  autoplay
+                  className="w-[300px] h-[300px]"
+                />
               </div>
             </div>
           )}

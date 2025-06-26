@@ -50,7 +50,7 @@ const Navbar = () => {
   };
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-opacity-50 bg-orange-500">
-      <div className="navbar w-11/12 mx-auto py-3 overflow-hidden">
+      <div className="navbar w-11/12 mx-auto py-3">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className=" mr-5 lg:hidden text-black dark:text-white">
@@ -72,7 +72,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-gray-400 bg-opacity-50 backdrop-blur-md rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-gray-400 bg-opacity-50 backdrop-blur-md rounded-box mt-3 w-52 p-2 shadow z-[999] absolute"
             >
               {links}
             </ul>

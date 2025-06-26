@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Typewriter } from "react-simple-typewriter";
 
 const hobbyCategories = [
   "Drawing & Painting",
@@ -27,7 +27,7 @@ const CreateGroup = () => {
     const sendDataDB = { ...formObject, members };
 
     // Send Data to db
-    fetch("https://hobbyhub-11-server-site.vercel.app/groups", {
+    fetch("http://localhost:3000/groups", {
       method: "POST",
       headers: {
         "content-type": "application/json",

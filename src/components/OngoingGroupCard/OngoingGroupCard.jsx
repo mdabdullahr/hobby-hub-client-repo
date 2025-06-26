@@ -19,7 +19,7 @@ const OngoingGroupCard = ({ group }) => {
       data-aos="fade-up"
       className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition duration-300 p-6"
     >
-      {/* Left side: Image */}
+      
       {imageUrl && (
         <div
           data-aos="zoom-in"
@@ -33,7 +33,6 @@ const OngoingGroupCard = ({ group }) => {
         </div>
       )}
 
-      {/* Right side: Text Content */}
       <div>
         <div className="space-y-3">
           <h3 className="text-lg md:text-xl font-bold text-gray-700 dark:text-gray-300 mt-2 w-fit">

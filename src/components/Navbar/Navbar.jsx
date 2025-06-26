@@ -8,16 +8,16 @@ import DarkMoodToggoler from "../DarkMoodToggoler/DarkMoodToggoler.jsx";
 
 const links = (
   <>
-    <li className="text-lg text-orange-500 md:text-xl">
+    <li className="text-lg text-white md:text-xl">
       <NavLink to="/">Home</NavLink>
     </li>
-    <li className="text-lg text-orange-500 md:text-xl ">
+    <li className="text-lg text-white md:text-xl ">
       <NavLink to="/allGroups">All Groups</NavLink>
     </li>
-    <li className="text-lg text-orange-500 md:text-xl ">
+    <li className="text-lg text-white md:text-xl ">
       <NavLink to="/createGroup">Create Group</NavLink>
     </li>
-    <li className="text-lg text-orange-500 md:text-xl ">
+    <li className="text-lg text-white md:text-xl ">
       <NavLink to="/myGroups">My Groups</NavLink>
     </li>
   </>
@@ -36,11 +36,11 @@ const Navbar = () => {
         });
       })
       .catch((error) => {
-        toast.error("Logout failed...!");
+        toast.error("Logout failed...!", error.message);
       });
   };
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-transparent bg-opacity-50 backdrop-blur-md">
+    <div className="fixed top-0 left-0 w-full z-50 bg-opacity-50 bg-orange-500">
       <div className="navbar w-11/12 mx-auto py-3 overflow-hidden">
         <div className="navbar-start">
           <div className="dropdown">
@@ -68,8 +68,8 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <MdGroups className="rounded-full border mr-2 bg-orange-500" size={30} color="#Ffffff" />
-          <h3 className="text-2xl md:text-3xl lg:text-4xl specific-text font-bold text-orange-500 hidden md:block">
+          <MdGroups className="rounded-full border mr-2" size={30} color="#Ffffff" />
+          <h3 className="text-2xl md:text-3xl lg:text-4xl specific-text font-bold text-white hidden md:block">
             HobbyHub
           </h3>
         </div>
@@ -83,7 +83,7 @@ const Navbar = () => {
           {user && (
             <div className="relative group">
               <img
-                className="w-6 md:w-12 h-6 md:h-12 rounded-full border border-orange-600"
+                className="w-6 md:w-12 h-6 md:h-12 rounded-full border border-white"
                 src={user.photoURL}
                 alt="userImg"
               />
@@ -97,7 +97,7 @@ const Navbar = () => {
             <button
               onClick={handleLogOut}
               data-aos="zoom-in"
-              className="text-white specific-text text-sm md:text-2xl bg-orange-500 font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 cursor-pointer whitespace-nowrap"
+              className="text-orange-500 specific-text text-sm md:text-2xl bg-white font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 cursor-pointer whitespace-nowrap"
             >
               LogOut
             </button>
@@ -105,7 +105,7 @@ const Navbar = () => {
             <Link
               to="/login"
               data-aos="zoom-in"
-              className="text-white bg-orange-500 text-sm md:text-2xl specific-text font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 whitespace-nowrap"
+              className="text-orange-500 bg-white text-sm md:text-2xl specific-text font-medium px-3 md:px-8 py-1 md:py-2 rounded transition-transform duration-500 hover:scale-105 whitespace-nowrap"
             >
               Login
             </Link>

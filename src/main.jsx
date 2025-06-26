@@ -12,7 +12,7 @@ function AOSInitializer({ children }) {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true,
+      once: false,
     });
   }, []);
 

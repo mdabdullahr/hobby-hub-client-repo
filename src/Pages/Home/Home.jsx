@@ -32,7 +32,7 @@ const Home = () => {
       <Banner />
 
       <section className="w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto">
-        <section data-aos="fade-up" className="my-10 lg:my-20">
+        <section className="my-10 lg:my-20">
           <h2 className="text-2xl text-orange-500 md:text-4xl lg:text-5xl specific-text text-center font-bold">
             Featured Groups
           </h2>

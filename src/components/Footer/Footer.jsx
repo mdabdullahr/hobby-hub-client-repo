@@ -34,13 +34,8 @@ const Footer = () => {
   }
 
   return (
-    <div
-      className={`bg-cover bg-center ${
-        isDark
-          ? "bg-gradient-to-r from-gray-900 to-gray-800"
-          : "bg-[url('https://i.ibb.co/gML0q5Mt/abstract-white-background-geometric-texture.jpg')]"
-      }`}
-    >
+    <div className="bg-orange-500 mt-10 lg:mt-20 xl:mt-28">
+
       <div
         data-aos="fade-up"
         className="w-11/12 lg:w-8/12 mx-auto pt-20 pb-10 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-52"
@@ -150,18 +145,9 @@ const Footer = () => {
           </form>
         </div>
       </div>
-
-      {/* Bottom Section */}
-      <div
-        className={`bg-cover bg-center ${
-          isDark ? "bg-gray-800" : "bg-[url('https://i.ibb.co/rKLCQVYV/lock.jpg')]"
-        }`}
-      >
-        <h5 className="text-xs md:text-lg text-white dark:text-gray-500 text-center py-5">
-          © HobbyHub — All Rights Reserved
-        </h5>
-      </div>
     </div>
+
+      
   );
 };
 

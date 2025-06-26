@@ -23,7 +23,7 @@ const GroupDetail = () => {
   const { user } = useContext(AuthContext);
   const [isJoining, setIsJoining] = useState(false);
   const [currentMembers, setCurrentMembers] = useState(members);
-  const [isDark, setIsDark] = useState(false);
+  
 
   const isAlreadyMember = user && currentMembers.includes(user.email);
 
@@ -76,29 +76,13 @@ const GroupDetail = () => {
   };
 
   useEffect(() => {
-    const classList = document.documentElement.classList;
-    setIsDark(classList.contains("dark"));
-
-    const observer = new MutationObserver(() => {
-      setIsDark(classList.contains("dark"));
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
     document.title = `HobbyHub | Group-Detail-${_id}`;
   }, [_id]);
 
   return (
     <div
       data-aos="fade-up"
-      className="py-32 w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto  "
+      className="py-32 lg:py-52 w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto  "
     >
       <div className="flex flex-col lg:flex-row items-center gap-10">
         <div data-aos="fade-right"

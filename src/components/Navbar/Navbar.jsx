@@ -15,6 +15,15 @@ const links = (
       <NavLink to="/allGroups">All Groups</NavLink>
     </li>
     <li className="text-lg text-white md:text-xl ">
+      <NavLink to="/about">About Us</NavLink>
+    </li>
+    <li className="text-lg text-white md:text-xl ">
+      <NavLink to="/contact">Contact</NavLink>
+    </li>
+    <li className="text-lg text-white md:text-xl ">
+      <NavLink to="/support">Support</NavLink>
+    </li>
+    <li className="text-lg text-white md:text-xl ">
       <NavLink to="/createGroup">Create Group</NavLink>
     </li>
     <li className="text-lg text-white md:text-xl ">

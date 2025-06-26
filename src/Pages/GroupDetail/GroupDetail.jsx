@@ -3,8 +3,6 @@ import { MdGroups } from "react-icons/md";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
-import details from "../../assets/Animation/details.json"
-import Lottie from "lottie-react";
 
 const GroupDetail = () => {
   const detail = useLoaderData();
@@ -77,121 +75,153 @@ const GroupDetail = () => {
     }
   };
 
+  useEffect(() => {
+    const classList = document.documentElement.classList;
+    setIsDark(classList.contains("dark"));
 
-   useEffect(() => {
-      const classList = document.documentElement.classList;
+    const observer = new MutationObserver(() => {
       setIsDark(classList.contains("dark"));
-  
-      const observer = new MutationObserver(() => {
-        setIsDark(classList.contains("dark"));
-      });
-  
-      observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ["class"],
-      });
-  
-      return () => observer.disconnect();
-    }, []);
+    });
 
-    useEffect(() => {
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     document.title = `HobbyHub | Group-Detail-${_id}`;
   }, [_id]);
 
-
   return (
     <div
-      className={`bg-cover bg-center p-4 md:p-6 ${
-        isDark
-        ? "bg-[url('https://i.ibb.co/PvCCp2vL/istockphoto-1294603953-612x612.jpg')]"
-        : "bg-[url('https://i.ibb.co/yBXDgJkm/mugic.jpg')]"
-      }`}
+      data-aos="fade-up"
+      className="py-32 w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto  "
     >
-      <div data-aos="fade-up" className="my-24 w-full max-w-7xl mx-auto ">
-        <div className="overflow-x-auto backdrop-blur-3xl rounded-xl shadow-md shadow-gray-">
-          <img
-            className="w-full h-full md:h-[400px] bg-cover"
-            src={imageUrl}
-            alt="group"
-          />
-          <div data-aos="fade-left" className="p-10 text-gray-800 dark:text-gray-400 space-y-5">
-              
-              <h2 className="text-2xl lg:text-4xl font-bold flex items-center gap-2 text-orange-500">
-              <MdGroups className="border border-orange-500 rounded-full"></MdGroups> {groupName}
-            </h2>
-            <div className="flex sm:flex-col md:flex-row sm:justify-around items-center">
-              <div className=" justify-center items-center hidden md:block">
-                <Lottie
-                  animationData={details}
-                  loop
-                  autoplay
-                  className="md:w-[300px] md:h-[300px] lg:w-[500px] lg:h-[500px]"
-                />
-              </div>
-              <div className="space-y-4">
-              
-            <h5 className="txt-lg lg:text-2xl">
-              <strong>Category :</strong> {hobbyCategory}
-            </h5>
-            <p className="text-sm lg:text-xl">
-              <strong>Meeting Location :</strong> {meetingLocation}
-            </p>
-            <p className="text-sm lg:text-xl">
-              <strong>Maximum Members :</strong> {maxMembers}
-            </p>
-            <p className="text-sm lg:text-xl">
-              <strong>Start Date :</strong> {startDate}
-            </p>
-            <p className="text-sm lg:text-xl">
-              <strong>Created By :</strong> {name}
-            </p>
-            <p className="text-sm lg:text-xl">
-              <strong>Admin Email :</strong> {email}
-            </p>
-            </div>
-
-            </div>
-            <p className="text-sm lg:text-xl">
-              <strong className="underline">Description :</strong> {description}
-            </p>
-
-            {!isGroupActive ? (
-              <p className="text-center text-red-600 font-semibold text-lg">
-                This group is no longer active.
-              </p>
-            ) : (
-              <button
-                onClick={handleJoin}
-                disabled={
-                  isAlreadyMember ||
-                  isJoining ||
-                  currentMembers.length >= Number(maxMembers)
-                }
-                className={`w-full cursor-pointer border-4 border-white shadow text-xl py-3 rounded-md specific-text transition-transform duration-500 ${
-                  isAlreadyMember || currentMembers.length >= Number(maxMembers)
-                    ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                    : "bg-orange-500 text-white hover:bg-orange-600"
-                }`}
-                title={
-                  isAlreadyMember
-                    ? "You have already joined"
-                    : currentMembers.length >= Number(maxMembers)
-                    ? "Group is full"
-                    : ""
-                }
-              >
-                {isAlreadyMember
-                  ? "Already Joined"
-                  : isJoining
-                  ? "Joining..."
-                  : currentMembers.length >= Number(maxMembers)
-                  ? "Group Full"
-                  : "Join Group"}
-              </button>
-            )}
-          </div>
-        </div>
+      <div className="flex flex-col lg:flex-row items-center gap-10">
+        <div data-aos="fade-right"
+         className="flex-1">
+        <img
+          className="w-full h-full md:h-[400px] object-cover rounded-2xl"
+          src={imageUrl}
+          alt="group"
+        />
       </div>
+      <div
+        data-aos="fade-left"
+        className="flex-1 w-full text-gray-800 dark:text-gray-400 space-y-5"
+      >
+        <h3 className="text-xl text-orange-500 md:text-3xl lg:text-4xl  font-bold">
+          {groupName}
+        </h3>
+
+        <table className="w-full text-left border-separate border-spacing-y-2">
+          <tbody>
+            <tr className="text-sm lg:text-lg">
+              <td className="font-semibold text-gray-700 dark:text-gray-300">
+                Category
+              </td>
+              <td className="text-gray-600 dark:text-gray-200">
+                : {hobbyCategory}
+              </td>
+            </tr>
+            <tr className="text-sm lg:text-lg">
+              <td className="font-semibold text-gray-700 dark:text-gray-300">
+                Meeting Location
+              </td>
+              <td className="text-gray-600 dark:text-gray-200">
+                : {meetingLocation}
+              </td>
+            </tr>
+            <tr className="text-sm lg:text-lg">
+              <td className="font-semibold text-gray-700 dark:text-gray-300">
+                Max Member
+              </td>
+              <td className="text-gray-600 dark:text-gray-200">
+                : {maxMembers}
+              </td>
+            </tr>
+            <tr className="text-sm lg:text-lg ">
+              <td className="font-semibold text-gray-700 dark:text-gray-300 hidden lg:table-cell">
+                Join Member
+              </td>
+              <td className="text-gray-600 dark:text-gray-200 hidden lg:table-cell">
+                : {members.length}
+              </td>
+            </tr>
+            <tr className="text-sm lg:text-lg">
+              <td className="font-semibold text-gray-700 dark:text-gray-300">
+                Meeting Start Date
+              </td>
+              <td className="text-gray-600 dark:text-gray-200">
+                : {startDate}
+              </td>
+            </tr>
+           
+            
+            <tr className="text-sm lg:text-lg ">
+              <td className="font-semibold text-gray-700 dark:text-gray-300 hidden lg:table-cell">
+                Organizer Name
+              </td>
+              <td className="text-gray-600 dark:text-gray-200 hidden lg:table-cell">
+                : {name}
+              </td>
+            </tr>
+            
+            <tr className="text-sm lg:text-lg">
+              <td className="font-semibold text-gray-700 dark:text-gray-300 hidden lg:table-cell">
+                Organizer Email
+              </td>
+              <td className="text-gray-600 dark:text-gray-200 hidden lg:table-cell">
+                : {email}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+      
+      </div>
+      <p className="text-gray-600 dark:text-gray-200 text-sm lg:text-lg  overflow-y-auto mt-5 lg:mt-10">
+          <strong>Description :</strong> {description}
+        </p>
+        {!isGroupActive ? (
+          <p className="mt-5 text-red-600 font-semibold text-lg">
+            This group is no longer active.
+          </p>
+        ) : (
+          <button
+            onClick={handleJoin}
+            disabled={
+              isAlreadyMember ||
+              isJoining ||
+              currentMembers.length >= Number(maxMembers)
+            }
+            className={`cursor-pointer text-xl py-2 lg:py-3 px-5 lg:px-10 mt-5 rounded-md specific-text transition-transform duration-500 ${
+              isAlreadyMember || currentMembers.length >= Number(maxMembers)
+                ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                : "bg-orange-500 text-white hover:bg-orange-600"
+            }`}
+            title={
+              isAlreadyMember
+                ? "You have already joined"
+                : currentMembers.length >= Number(maxMembers)
+                ? "Group is full"
+                : ""
+            }
+          >
+            {isAlreadyMember
+              ? "Already Joined"
+              : isJoining
+              ? "Joining..."
+              : currentMembers.length >= Number(maxMembers)
+              ? "Group Full"
+              : "Join Group"}
+          </button>
+        )}
     </div>
   );
 };

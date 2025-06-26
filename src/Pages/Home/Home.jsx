@@ -21,7 +21,7 @@ const Home = () => {
     return groupDate >= todayDateOnly;
   });
 
-  const featuredGroup = ongoingGroups.slice(0, 6);
+  const featuredGroup = ongoingGroups.slice(0, 8);
 
   useEffect(() => {
     document.title = "HobbyHub | Home";
@@ -73,7 +73,7 @@ const Home = () => {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1  lg:grid-cols-2 gap-6 my-10 lg:my-20">
+            <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 my-10 lg:my-20">
               {featuredGroup.map((group) => (
                 <OngoingGroupCard key={group._id} group={group} />
               ))}
@@ -83,7 +83,7 @@ const Home = () => {
 
         <section
           data-aos="fade-up"
-          className="max-w-7xl mx-auto  rounded-2xl  px-8  py-12 mb-10 flex flex-col md:flex-row items-center justify-between gap-8"
+          className="rounded-2xl mb-10 lg:mb-20 flex flex-col md:flex-row items-center justify-between gap-8"
         >
           <div
             data-aos="fade-left"
@@ -124,7 +124,7 @@ const Home = () => {
 
         <section
           data-aos="fade-up"
-          className="max-w-7xl mx-auto bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-10 my-20"
+          className="bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-10 mb-10 lg:mb-20"
         >
           <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-600 dark:text-white mb-12">
             Why Choose HobbyHub?

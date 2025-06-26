@@ -22,10 +22,10 @@ const Navbar = () => {
         <NavLink to="/about">About Us</NavLink>
       </li>
       <li className="text-lg text-white md:text-xl ">
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/terms">Terms & Condition</NavLink>
       </li>
       <li className="text-lg text-white md:text-xl ">
-        <NavLink to="/support">Support</NavLink>
+        <NavLink to="/privacy">Privacy Policy</NavLink>
       </li>
       <>
         {user && (

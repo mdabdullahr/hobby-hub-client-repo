@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { useContext, useEffect, useState } from "react";
 import {
-  FaUsers,
-  FaLightbulb,
   FaCalendarAlt,
   FaComments,
+  FaLightbulb,
+  FaUsers,
 } from "react-icons/fa";
+import { useLoaderData } from "react-router";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const DashboardHome = () => {
   const { user } = useContext(AuthContext);
@@ -15,13 +15,15 @@ const DashboardHome = () => {
   const [myGroups, setMyGroups] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/groups`)
+    fetch(`https://hobbyhub-11-server-site.vercel.app/groups`)
       .then((res) => res.json())
       .then((data) => setAllGroups(data));
   }, [allGroups]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-groups?emailParams=${user?.email}`)
+    fetch(
+      `https://hobbyhub-11-server-site.vercel.app/my-groups?emailParams=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyGroups(data));
   }, [user?.email]);
@@ -35,6 +37,8 @@ const DashboardHome = () => {
     start.setHours(0, 0, 0, 0);
     return start >= today;
   });
+
+  const nonActiveGroups = allGroups?.length - activeGroups?.length;
 
   return (
     <>
@@ -73,9 +77,9 @@ const DashboardHome = () => {
 
           {/* Active Groups */}
           <div className="bg-pink-500 p-6 lg:p-10 rounded-lg shadow text-white">
-            <h2 className="text-xl font-medium mb-4">Active Groups</h2>
+            <h2 className="text-xl font-medium mb-4">Non Active Groups</h2>
             <p className="text-4xl lg:text-5xl font-bold">
-              {activeGroups?.length || 0}
+              {nonActiveGroups || 0}
               <span className="text-2xl font-medium ml-1">Groups</span>
             </p>
           </div>
@@ -153,8 +157,8 @@ const DashboardHome = () => {
           </div>
         </div>
       </div>
-      
-      <div className="my-10  w-full h-[50vh] 2xl:h-[90vh] rounded-2xl overflow-hidden shadow-xl relative">
+
+      <div className="my-10  w-full h-[100vh] sm:h-[50vh] 2xl:h-[90vh] rounded-2xl overflow-hidden shadow-xl relative">
         {/* Top Half - Cover Background */}
         <div
           className="h-1/2 bg-cover bg-center"
@@ -169,7 +173,7 @@ const DashboardHome = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-600 text-center">
             My Profile!
           </h2>
-          <div className="flex items-center justify-between mt-10">
+          <div className="flex flex-col md:flex-row items-center justify-between mt-2 md:mt-10">
             <div>
               <p className="text-lg lg:text-xl font-medium text-gray-500 mt-1 mb-2 xl:mb-4">
                 Full Name

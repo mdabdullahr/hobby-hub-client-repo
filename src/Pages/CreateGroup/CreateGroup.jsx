@@ -1,5 +1,4 @@
 import { useContext, useEffect } from "react";
-import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -26,7 +25,7 @@ const CreateGroup = () => {
     const sendDataDB = { ...formObject, members };
 
     // Send Data to db
-    fetch("http://localhost:3000/groups", {
+    fetch("https://hobbyhub-11-server-site.vercel.app/groups", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -56,7 +55,6 @@ const CreateGroup = () => {
         onSubmit={handleCreateGroup}
         className="bg-white shadow-lg rounded-lg p-5 md:p-10 lg:p-14 space-y-10 text-gray-800"
       >
-
         {/* Title */}
         <h2 className="text-3xl lg:text-4xl font-bold text-center text-orange-600 border-b-2 pb-4">
           Create Your Hobby Group

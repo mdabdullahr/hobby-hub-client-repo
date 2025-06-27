@@ -14,7 +14,9 @@ const MyGroups = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-groups?emailParams=${user?.email}`)
+    fetch(
+      `https://hobbyhub-11-server-site.vercel.app/my-groups?emailParams=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyGroups(data));
   }, [user?.email]);
@@ -30,7 +32,7 @@ const MyGroups = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/groups/${_id}`, {
+        fetch(`https://hobbyhub-11-server-site.vercel.app/groups/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -52,6 +54,7 @@ const MyGroups = () => {
   useEffect(() => {
     document.title = "HobbyHub | My-Groups";
   }, []);
+
   return (
     <div>
       <div data-aos="fade-left">
@@ -98,10 +101,10 @@ const MyGroups = () => {
                   <td className="px-4 py-3 flex items-center gap-4">
                     <div>
                       <img
-                      className="w-12 h-12 object-cover rounded-lg"
-                      src={group.imageUrl}
-                      alt=""
-                    />
+                        className="w-12 h-12 object-cover rounded-lg"
+                        src={group.imageUrl}
+                        alt=""
+                      />
                     </div>
                     <div className="flex flex-col">
                       <span className="font-semibold text-sm md:text-base text-gray-800">
@@ -151,26 +154,20 @@ const MyGroups = () => {
                       </button>
                     </div>
                   </td>
-                  
                 </tr>
               ))}
             </tbody>
           </table>
         ) : (
           <div>
-            <div
-              data-aos="fade-up"
-              className="p-10 lg:p-20 space-y-5"
-            >
+            <div data-aos="fade-up" className="p-10 lg:p-20 space-y-5">
               <h2 className="text-center font-bold text-2xl md:text-5xl specific-text text-orange-500">
                 Oops...!
               </h2>
               {/* Typewriter */}
               <p className="text-center font-semibold text-lg lg:text-2xl text-gray-600 dark:text-gray-400">
                 <Typewriter
-                  words={[
-                    "Right now your no group Available here...!",
-                  ]}
+                  words={["Right now your no group Available here...!"]}
                   loop={true}
                   cursor
                   cursorStyle="|"
@@ -180,7 +177,7 @@ const MyGroups = () => {
                 />
               </p>
             </div>
-            <div className="flex justify-center items-center dark:bg-gray-900">
+            <div className="flex justify-center items-center">
               <Lottie
                 animationData={noDataFound}
                 loop
@@ -188,7 +185,6 @@ const MyGroups = () => {
                 className="w-[300px] h-[300px]"
               />
             </div>
-            
           </div>
         )}
       </div>

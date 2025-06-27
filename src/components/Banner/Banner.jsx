@@ -20,7 +20,7 @@ const Banner = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
-        className="w-full h-[400px] lg:h-[750px]"
+        className="w-full h-[500px] lg:h-[750px]"
       >
         {/* Slide 1 */}
         <SwiperSlide>
@@ -36,7 +36,7 @@ const Banner = () => {
             {/* Text content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
               {/* Typewriter effect */}
-              <h2 className="text-lg md:text-2xl lg:text-3xl text-white font-semibold mb-6">
+              <h2 className="text-lg md:text-2xl lg:text-3xl text-white font-semibold mb-6 h-[50px]">
                 <Typewriter
                   words={[
                     "Welcome to our HobbyHub community..!",
@@ -84,7 +84,7 @@ const Banner = () => {
             {/* Text content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
               {/* Typewriter effect */}
-              <h2 className="text-lg md:text-2xl lg:text-3xl text-white font-semibold mb-6">
+              <h2 className="text-lg md:text-2xl lg:text-3xl text-white font-semibold mb-6 h-[50px]">
                 <Typewriter
                   words={[
                     "Welcome to our HobbyHub community..!",
@@ -131,7 +131,7 @@ const Banner = () => {
             {/* Text content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
               {/* Typewriter effect */}
-              <h2 className="text-lg md:text-2xl lg:text-3xl text-white font-semibold mb-6">
+              <h2 className="text-lg md:text-2xl lg:text-3xl text-white font-semibold mb-6 h-[50px] ">
                 <Typewriter
                   words={[
                     "Welcome to our HobbyHub community..!",

@@ -1,33 +1,33 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useLoaderData } from "react-router";
-import { GoHome } from "react-icons/go";
-import { MdOutlineGroupAdd } from "react-icons/md";
-import { MdOutlineGroup } from "react-icons/md";
-import { MdMovieEdit } from "react-icons/md";
+import { useContext, useEffect, useState } from "react";
 import { FiLogOut } from "react-icons/fi";
+import { GoHome } from "react-icons/go";
+import { MdMovieEdit, MdOutlineGroup, MdOutlineGroupAdd } from "react-icons/md";
+import { Link, NavLink, Outlet, useLoaderData } from "react-router";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 import logo from "../assets/logo.png";
 import DashboardTopNavbar from "../components/DashboardNavbar/DashboardNavbar";
 import { AuthContext } from "../Provider/AuthProvider";
-import Swal from "sweetalert2";
-import { toast } from "react-toastify";
 
 const DashboardLayout = () => {
   const totalGroup = useLoaderData();
-  const {user,logoutUser} = useContext(AuthContext)
+  const { user, logoutUser } = useContext(AuthContext);
   const [myGroups, setMyGroups] = useState([]);
   const [allGroups, setAllGroups] = useState([]);
-  
+
   useEffect(() => {
-    fetch(`http://localhost:3000/my-groups?emailParams=${user?.email}`)
+    fetch(
+      `https://hobbyhub-11-server-site.vercel.app/my-groups?emailParams=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyGroups(data));
   }, [user?.email]);
 
   useEffect(() => {
-      fetch(`http://localhost:3000/groups`)
-        .then((res) => res.json())
-        .then((data) => setAllGroups(data));
-    }, [allGroups]);
+    fetch(`https://hobbyhub-11-server-site.vercel.app/groups`)
+      .then((res) => res.json())
+      .then((data) => setAllGroups(data));
+  }, [allGroups]);
 
   // Active groups count logic (startDate >= today)
   const today = new Date();
@@ -87,7 +87,11 @@ const DashboardLayout = () => {
                 Dashboard
               </div>
             </div>
-            <DashboardTopNavbar totalGroup={totalGroup} myGroups={myGroups} activeGroups={activeGroups}></DashboardTopNavbar>
+            <DashboardTopNavbar
+              totalGroup={totalGroup}
+              myGroups={myGroups}
+              activeGroups={activeGroups}
+            ></DashboardTopNavbar>
             {/* Main Content */}
             <div className="px-5 2xl:px-10 my-10 overflow-auto">
               <Outlet />
@@ -101,7 +105,7 @@ const DashboardLayout = () => {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <div className="bg-white text-black min-h-full w-80 p-6 flex flex-col justify-between">
+            <div className="bg-white text-black min-h-full w-[70vw] sm:w-72 md:w-80 p-6 flex flex-col justify-between">
               {/* Top: Logo + Links */}
               <div className="space-y-6">
                 <Link to="/">
@@ -142,21 +146,21 @@ const DashboardLayout = () => {
                       Create Group
                     </NavLink>
                   </li>
-                  
+                 
                 </ul>
               </div>
 
               {/* Bottom: Logout */}
               <div className="mt-6 p-8 border-t-2 border-gray-300">
                 <li>
-                    <NavLink
-                      to="/dashboard/updateProfile"
-                      className="text-white hover:text-[#526484] hover:bg-gray-200 text-[15px] font-medium px-4 py-3 flex items-center rounded-md mb-5 bg-orange-500"
-                    >
-                      <MdMovieEdit size={20} className="mr-2" />
+                  <NavLink
+                    to="/dashboard/updateProfile"
+                    className="text-white hover:text-[#526484] hover:bg-gray-200 text-[15px] font-medium px-4 py-3 flex items-center rounded-md mb-5 bg-orange-500"
+                  >
+                    <MdMovieEdit size={20} className="mr-2" />
                     Update Profile
-                    </NavLink>
-                  </li>
+                  </NavLink>
+                </li>
                 <button
                   onClick={handleLogOut}
                   className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition cursor-pointer w-full"

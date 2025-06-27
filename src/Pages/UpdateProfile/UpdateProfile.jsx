@@ -27,15 +27,15 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className="bg-gray-100 flex min-h-screen items-center justify-center p-6">
+    <div className="bg-gray-100 flex min-h-screen items-center justify-center p-2 md:p-6">
       <form
         onSubmit={handleUpdate}
-        className="bg-white max-w-2xl w-full rounded-2xl shadow-xl p-8 md:p-12 space-y-6"
+        className="bg-white max-w-2xl w-full rounded-2xl shadow-xl p-4 sm:p-8 md:p-12 space-y-6"
         data-aos="fade-up"
       >
         <div className="flex items-center justify-center gap-2 mb-6">
           <FaUserEdit className="text-orange-500 text-3xl" />
-          <h2 className="text-3xl font-bold text-orange-500 text-center">
+          <h2 className="text-xl md:text-3xl font-bold text-orange-500 text-center">
             Update Your Profile
           </h2>
         </div>
@@ -71,7 +71,7 @@ const UpdateProfile = () => {
         <div className="pt-4">
           <button
             type="submit"
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold py-3 rounded-xl shadow-md transition duration-300 cursor-pointer"
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm md:text-lg font-medium py-3 rounded-xl shadow-md transition duration-300 cursor-pointer"
           >
             Save Changes
           </button>

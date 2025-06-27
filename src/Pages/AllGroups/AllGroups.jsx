@@ -12,7 +12,9 @@ const AllGroups = () => {
   const [loading, setLoading] = useState(true);
   console.log(search);
   useEffect(() => {
-    fetch(`http://localhost:3000/groups?search=${search}&sort=${sortOrder}`)
+    fetch(
+      `https://hobbyhub-11-server-site.vercel.app/groups?search=${search}&sort=${sortOrder}`
+    )
       .then((res) => res.json())
       .then((data) => setGroups(data));
     setLoading(false);

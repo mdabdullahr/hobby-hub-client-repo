@@ -1,22 +1,22 @@
 import { createBrowserRouter } from "react-router";
+import DashboardLayout from "../Layouts/DashboardLayout";
 import MainLayout from "../Layouts/MainLayout";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 import AllGroups from "../Pages/AllGroups/AllGroups";
 import CreateGroup from "../Pages/CreateGroup/CreateGroup";
+import DashboardHome from "../Pages/DashboardHome/DashboardHome";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import GroupDetail from "../Pages/GroupDetail/GroupDetail";
 import Home from "../Pages/Home/Home";
 import Loader from "../Pages/Loader/Loader";
 import Login from "../Pages/Login/Login";
 import MyGroups from "../Pages/MyGroups/MyGroups";
-import Register from "../Pages/Register/Register";
-import UpdateGroup from "../Pages/UpdateGroup/UpdateGroup";
-import PrivateRoutes from "../Provider/PrivateRoutes";
-import DashboardLayout from "../Layouts/DashboardLayout";
-import DashboardHome from "../Pages/DashboardHome/DashboardHome";
-import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
-import AboutUs from "../Pages/AboutUs/AboutUs";
-import TermsCondition from "../Pages/TermsCondition/TermsCondition";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
+import Register from "../Pages/Register/Register";
+import TermsCondition from "../Pages/TermsCondition/TermsCondition";
+import UpdateGroup from "../Pages/UpdateGroup/UpdateGroup";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
+import PrivateRoutes from "../Provider/PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +26,8 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/groups"),
+        loader: () =>
+          fetch("https://hobbyhub-11-server-site.vercel.app/groups"),
         Component: Home,
         hydrateFallbackElement: <Loader></Loader>,
       },
@@ -46,7 +47,9 @@ export const router = createBrowserRouter([
       {
         path: "groupDetail/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/groups/${params.id}`),
+          fetch(
+            `https://hobbyhub-11-server-site.vercel.app/groups/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <GroupDetail></GroupDetail>
@@ -56,48 +59,55 @@ export const router = createBrowserRouter([
       },
       {
         path: "about",
-        Component: AboutUs
+        Component: AboutUs,
       },
       {
         path: "terms",
-        Component: TermsCondition
+        Component: TermsCondition,
       },
       {
         path: "privacy",
-        Component: PrivacyPolicy
-      }
-      
+        Component: PrivacyPolicy,
+      },
     ],
   },
   {
     path: "/dashboard",
-     loader: () => fetch('http://localhost:3000/groupsCount'),
-    element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
+    loader: () =>
+      fetch("https://hobbyhub-11-server-site.vercel.app/groupsCount"),
+    element: (
+      <PrivateRoutes>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoutes>
+    ),
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/groupsCount'),
-        Component: DashboardHome
+        loader: () =>
+          fetch("https://hobbyhub-11-server-site.vercel.app/groupsCount"),
+        Component: DashboardHome,
       },
       {
         path: "myGroups",
-        Component: MyGroups
+        Component: MyGroups,
       },
       {
         path: "createGroup",
-        Component: CreateGroup
+        Component: CreateGroup,
       },
       {
         path: "updateGroup/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/groups/${params.id}`),
+          fetch(
+            `https://hobbyhub-11-server-site.vercel.app/groups/${params.id}`
+          ),
         Component: UpdateGroup,
         hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "updateProfile",
-        Component: UpdateProfile
-      }
-    ]
-  }
+        Component: UpdateProfile,
+      },
+    ],
+  },
 ]);

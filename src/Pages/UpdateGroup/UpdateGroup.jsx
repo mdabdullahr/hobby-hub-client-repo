@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLoaderData} from "react-router";
+import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
 const hobbyCategories = [
@@ -34,7 +34,7 @@ const UpdateGroup = () => {
     const formDataObj = Object.fromEntries(formData.entries());
 
     // Send data to db
-    fetch(`http://localhost:3000/groups/${_id}`, {
+    fetch(`https://hobbyhub-11-server-site.vercel.app/groups/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

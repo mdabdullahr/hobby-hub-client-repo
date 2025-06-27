@@ -2,7 +2,7 @@ import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto px-4 pt-32 pb-20 text-gray-600 dark:text-gray-300 space-y-6">
+    <div data-aos="fade-left" className="w-11/12 xl:w-10/12 2xl:w-8/12 mx-auto px-4 pt-32 pb-20 text-gray-600 dark:text-gray-300 space-y-6">
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-orange-500 mb-6">
         Privacy Policy
       </h1>
@@ -13,8 +13,8 @@ const PrivacyPolicy = () => {
         your information when you visit our platform.
       </p>
 
-      <div>
-        <h2 className="text-2xl font-semibold text-orange-500 mt-6 mb-2">
+      <div data-aos="fade-left">
+        <h2 className="text-xl lg:text-2xl font-medium text-orange-500 mt-6 mb-2">
           1. Information We Collect
         </h2>
         <p className="text-lg">
@@ -25,8 +25,8 @@ const PrivacyPolicy = () => {
         </p>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold text-orange-500 mt-6 mb-2">
+      <div data-aos="fade-left">
+        <h2 className="text-xl lg:text-2xl font-medium text-orange-500 mt-6 mb-2">
           2. How We Use Your Information
         </h2>
         <p className="text-lg">
@@ -36,8 +36,8 @@ const PrivacyPolicy = () => {
         </p>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold text-orange-500 mt-6 mb-2">
+      <div data-aos="fade-left">
+        <h2 className="text-xl lg:text-2xl font-medium text-orange-500 mt-6 mb-2">
           3. Sharing Your Information
         </h2>
         <p className="text-lg">
@@ -48,8 +48,8 @@ const PrivacyPolicy = () => {
         </p>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold text-orange-500 mt-6 mb-2">
+      <div data-aos="fade-left">
+        <h2 className="text-xl lg:text-2xl font-medium text-orange-500 mt-6 mb-2">
           4. Cookies and Tracking Technologies
         </h2>
         <p className="text-lg">
@@ -59,8 +59,8 @@ const PrivacyPolicy = () => {
         </p>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold text-orange-500 mt-6 mb-2">
+      <div data-aos="fade-left">
+        <h2 className="text-xl lg:text-2xl font-medium text-orange-500 mt-6 mb-2">
           5. Your Data Security
         </h2>
         <p className="text-lg">
@@ -70,8 +70,8 @@ const PrivacyPolicy = () => {
         </p>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold text-orange-500 mt-6 mb-2">
+      <div data-aos="fade-left">
+        <h2 className="text-xl lg:text-2xl font-medium text-orange-500 mt-6 mb-2">
           6. Your Rights
         </h2>
         <p className="text-lg">
@@ -81,8 +81,8 @@ const PrivacyPolicy = () => {
         </p>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold text-orange-500 mt-6 mb-2">
+      <div data-aos="fade-left">
+        <h2 className="text-xl lg:text-2xl font-medium text-orange-500 mt-6 mb-2">
           7. Changes to This Policy
         </h2>
         <p className="text-lg">
@@ -91,8 +91,8 @@ const PrivacyPolicy = () => {
         </p>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold text-orange-500 mt-6 mb-2">
+      <div data-aos="fade-left">
+        <h2 className="text-xl lg:text-2xl font-medium text-orange-500 mt-6 mb-2">
           8. Contact Us
         </h2>
         <p className="text-lg">

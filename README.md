@@ -4,6 +4,8 @@
 
 HobbyHub is a full-stack web application that allows users to discover, create, and join local hobby groups based on shared interests like arts, sports, tech, and more. Built using React, Firebase, and TailwindCSS, it offers role-based access, protected routes, and a smooth, modern UI.
 
+<img src="https://i.ibb.co.com/hJ9zxmnt/hobby.png"/>
+
 ---
 
 ## 🚀 Key Features
@@ -59,7 +61,7 @@ git clone https://github.com/mdabdullahr/hobby-hub-client-repo.git
 
 ### 2. Navigate to the Project Directory
 bash <br/>
-cd hobby-hub-client-repo
+cd hobby-hub-client
 
 ### 3. Install Dependencies
 bash <br/>
